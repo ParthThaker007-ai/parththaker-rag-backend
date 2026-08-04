@@ -24,18 +24,18 @@ import time
 # ============================================
 # CONFIG
 # ============================================
-HF_API_TOKEN = os.environ.get("HF_API_TOKEN")  # set this in Render's Environment tab
+HF_TOKEN = os.environ.get("HF_TOKEN")  # already set in Render's Environment tab
 HF_MODEL_ID = os.environ.get("HF_EMBEDDING_MODEL", "intfloat/multilingual-e5-small")
 HF_API_URL = f"https://api-inference.huggingface.co/pipeline/feature-extraction/{HF_MODEL_ID}"
 
-if not HF_API_TOKEN:
+if not HF_TOKEN:
     raise RuntimeError(
-        "HF_API_TOKEN environment variable is not set. "
+        "HF_TOKEN environment variable is not set. "
         "Get a free token at https://huggingface.co/settings/tokens "
         "and add it in Render's Environment tab."
     )
 
-HEADERS = {"Authorization": f"Bearer {HF_API_TOKEN}"}
+HEADERS = {"Authorization": f"Bearer {HF_TOKEN}"}
 
 # Retry settings — HF's free inference endpoints can return 503 while
 # a model is "cold" (spinning up on their side). We retry with backoff
