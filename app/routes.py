@@ -33,27 +33,31 @@ TOP_K = 10
 SCORE_THRESHOLD = 0.3
 
 # ============================================================
-# CROSS-ENCODER RERANKER (optional)
+# RERANKER — DISABLED FOR LOW-MEMORY DEPLOYMENT
 # ============================================================
-try:
-    from sentence_transformers import CrossEncoder
-    reranker = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
-    RERANKER_AVAILABLE = True
-except ImportError:
-    RERANKER_AVAILABLE = False
-    reranker = None
+# The local CrossEncoder (sentence-transformers -> torch) used to be
+# loaded here at import time, adding a second full torch/model
+# footprint on top of the embedding model. On Render's free tier
+# (512MB RAM) this pushed the process over the limit and got it
+# OOM-killed.
+#
+# RERANKER_AVAILABLE is kept as a flag (rather than deleting the
+# reranking code path below) so the rest of query_paper() doesn't
+# need to change — it already branches on this flag and falls back
+# to sorting by vector similarity score. Retrieval quality drops
+# slightly (results are ordered by raw cosine similarity instead of
+# a cross-encoder's relevance score), but the app stays up.
+#
+# To bring reranking back later without the memory cost, replace
+# this block with a call to HF's hosted Inference API for the same
+# cross-encoder model — the same approach embedding.py now uses for
+# embeddings instead of loading sentence-transformers locally.
+RERANKER_AVAILABLE = False
+reranker = None
 
 def rerank_hits(query: str, hits: list, top_k: int = 5) -> list:
-    """Rerank hits using a cross-encoder and return the top_k."""
-    if not hits or not RERANKER_AVAILABLE:
-        return hits[:top_k]
-    pairs = [[query, h["payload"]["text"]] for h in hits]
-    scores = reranker.predict(pairs)
-    # Attach rerank scores and sort
-    for i, h in enumerate(hits):
-        h["rerank_score"] = float(scores[i])
-    hits.sort(key=lambda x: x["rerank_score"], reverse=True)
-    return hits[:top_k]
+    """Reranking disabled — returns hits sorted by vector similarity score."""
+    return sorted(hits, key=lambda x: x["score"], reverse=True)[:top_k]
 
 @router.get("/health", response_model=HealthResponse)
 async def health_check():
