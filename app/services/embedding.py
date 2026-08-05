@@ -29,7 +29,7 @@ from fastembed import TextEmbedding
 # fastembed maintains its own list of supported models — this one is
 # officially supported and matches the model the collection was
 # originally sized for (384-dim, in vector_store.ensure_collection).
-MODEL_NAME = os.environ.get("EMBEDDING_MODEL", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
+MODEL_NAME = os.environ.get("EMBEDDING_MODEL", "BAAI/bge-small-en-v1.5")
 
 print(f"📥 Loading local ONNX embedding model: {MODEL_NAME}")
 _model = TextEmbedding(model_name=MODEL_NAME)

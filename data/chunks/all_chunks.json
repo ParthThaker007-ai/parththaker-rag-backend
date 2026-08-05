@@ -1,2365 +1,2365 @@
 [
   {
-    "id": "8e892688-64c1-4cbb-8d85-0c4be4735b04",
+    "id": "ad738f18-b03c-4a81-a6f4-6c033db356ca",
     "text": "[Page 1]. Cross-Lingual Mechanistic Interpretability & Safety. Alignment for Low-Resource Languages (Gujarati). 1. Project Overview & Scientific Motivation. Large Language Models (LLMs) are primarily aligned and safety-tuned using English-centric. datasets. As prompts are translated into low-resource languages such as Gujarati, these safety.",
     "source": "cross-lingual-safety",
     "page": 1,
     "chunk_index": 0
   },
   {
-    "id": "e8b76389-7899-4be0-aac9-4fd41417ea83",
+    "id": "0e3fbb31-30e3-49b2-80d0-966398c939bc",
     "text": "mechanisms may weaken, enabling harmful requests to bypass alignment safeguards. This. phenomenon is known as the cross-lingual safety vulnerability. This project investigates the internal. safety representations of Apertus-8B, a fully open multilingual foundation model developed by the. Swiss AI Initiative (ETH Zurich, EPFL, and CSCS). The study aims to identify and analyze.",
     "source": "cross-lingual-safety",
     "page": null,
     "chunk_index": 1
   },
   {
-    "id": "802279ee-8951-4c5c-852c-5981fc11bb96",
+    "id": "a0d8be64-1492-45f7-88f0-3e513740b2a2",
     "text": "multilingual refusal vectors, evaluate whether English safety representations transfer to Gujarati,. and quantify the Jailbreak Tax, defined as the reduction in model helpfulness caused by stronger. safety alignment.. 2. Technical Architecture & Specifications. Model: Apertus-8B  Architecture: 8-billion-parameter dense Transformer optimized for multilingual. reasoning.",
     "source": "cross-lingual-safety",
     "page": null,
     "chunk_index": 2
   },
   {
-    "id": "8949ac0d-8cd8-4ae4-8632-869b80351a6f",
+    "id": "bf24b79a-960e-4cc3-a34a-f44227d69991",
     "text": " Activation Function: xIELU (Expanded Integral of the Exponential Linear Unit),. designed to improve optimization stability and gradient flow in deep multilingual networks. . Compliance: Developed following Swiss transparency principles and EU AI Act requirements,. making it suitable for mechanistic interpretability and open-science research.. 3. Eight-Week Execution Timeline.",
     "source": "cross-lingual-safety",
     "page": null,
     "chunk_index": 3
   },
   {
-    "id": "18afcb45-244f-414a-800e-bc1e0dcb2724",
+    "id": "d43c3f09-b787-4e47-a103-a58dd6d3fa95",
     "text": "Phase 1 (Weeks 1–2): Dataset Preparation & Baseline Probing.  Construct a benchmark containing 100 prompts (50 harmful, 50 benign)..  Translate English prompts into Gujarati using an automated pipeline followed by 20% manual. verification to preserve semantic fidelity..  Validate tokenization, preprocessing, and PyTorch data-loading pipelines..",
     "source": "cross-lingual-safety",
     "page": null,
     "chunk_index": 4
   },
   {
-    "id": "3f785a12-e859-4183-8373-1e90d26c3224",
+    "id": "86a913e1-ed97-401a-aaea-487b6e554d97",
     "text": "Phase 2 (Weeks 3–4): Cloud Infrastructure & Activation Extraction.  Provision an NVIDIA L40S or RTX 4090 cloud instance..  Load Apertus-8B and extract residual stream activations across all 32 Transformer layers for. English and Gujarati prompts..  Develop custom TransformerLens hooks compatible with xIELU while minimizing GPU memory. usage and preventing OOM failures..",
     "source": "cross-lingual-safety",
     "page": null,
     "chunk_index": 5
   },
   {
-    "id": "9b0aaf7a-6941-40da-9038-efc649e604d9",
+    "id": "12d84563-b0fc-45af-bfd8-0d9ce0d64af9",
     "text": "Phase 3 (Weeks 5–6): Sparse Autoencoder & Causal Steering.  Train a lightweight Sparse Autoencoder (SAE) on layers exhibiting the highest cross-lingual. cosine similarity..  Perform activation patching experiments to test whether injecting English refusal vectors into. Gujarati forward passes causally induces safe refusal behavior.. Phase 4 (Weeks 7–8): Evaluation & Research Paper Preparation.",
     "source": "cross-lingual-safety",
     "page": null,
     "chunk_index": 6
   },
   {
-    "id": "8c54b65b-b5bd-4c13-baf8-ca8656aa6209",
+    "id": "562e04c6-6acf-4e35-a114-820fa126d0b3",
     "text": " Measure Gujarati jailbreak success rates, translation bypass performance, and the Jailbreak Tax..  Prepare the final manuscript in LaTeX, emphasizing reproducibility, mechanistic interpretability,. multilingual safety, and alignment with the EU AI Act and Swiss AI Initiative open-science practices..",
     "source": "cross-lingual-safety",
     "page": null,
     "chunk_index": 7
   },
   {
-    "id": "7e303983-d303-4eb9-83fb-509618a4c748",
+    "id": "b12af2b6-7944-4580-b416-8094f87d3b42",
     "text": "[Page 1]. Failure Geometry: A Multi-Dimensional and. Cross-Dataset Analysis of. Object Detection Robustness under Real-World. Corruptions. Parth Thaker1Dinesh Prajapati2. 1M.Tech Student, A.D. Patel Institute of Technology, The CVM University. thakerparth12@gmail.com. 2Associate Professor, A.D. Patel Institute of Technology, The CVM University. djprajapati@adit.ac.in.",
     "source": "failure-geometry (1)",
     "page": 1,
     "chunk_index": 0
   },
   {
-    "id": "abae9472-7e46-4fb8-9ded-e88573da56d4",
+    "id": "9a5515a1-8087-42c5-a149-e7b2c68f3289",
     "text": "Abstract—Object detection models routinely achieve strong. results on standard benchmarks, yet their behaviour under real-. world corruptions is much less well understood. Scalar metrics. like mean Average Precision collapse all failure information. into a single number — making it impossible to distinguish. whether a model missed detections, generated false positives, lost.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 1
   },
   {
-    "id": "6b9bd440-0346-481c-896d-02f49ef32203",
+    "id": "a30053a2-1f74-40ea-a18f-bc38d250355a",
     "text": "localisation precision, or became overconfident.. We introduceFailure Geometry, an evaluation framework that. represents corruption-induced degradation as a four-dimensional. failure vectorF=[∆R,∆P,∆L,∆E], capturing recall degra-. dation, precision shift, localisation error, and calibration drift.. We evaluate four pretrained detectors — YOLOv8n, YOLOv9c,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 2
   },
   {
-    "id": "3d3abe80-0ed0-404d-8bbd-fecc1a6e02bd",
+    "id": "890a42ad-858b-41bd-af3d-017a0efc16c1",
     "text": "DETR (ResNet-50), and RT-DETR — under 17 corruption types. across five severity levels ontwoindependent benchmarks: the. full COCO val2017 dataset (5,000 images) and Pascal VOC,. substantially expanding prior work which covered at most nine. corruption types on a single dataset and subsets of 500 to 2,000. images.. Our experiments surface two architecturally consistent failure.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 3
   },
   {
-    "id": "5ff3be64-412c-43e1-95f9-8a0d756e4a3e",
+    "id": "bd623b1a-98e5-4c05-9e3b-f7e9184bd65e",
     "text": "modes that replicate across both datasets.Hallucinationunder. zoom blur — where false-positive rate increases with severity. — is confirmed on COCO for all four models (∆P=+0.264. for YOLOv9c down to+0.084for RT-DETR at severity 5). and, with attenuated magnitude, on three of four models on. VOC (YOLOv8n+0.068, DETR+0.137, YOLOv9c≈0.001),.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 4
   },
   {
-    "id": "53f244b5-b3e3-4227-9a6b-54e92f7cc98f",
+    "id": "ab744bb5-8219-4609-824f-0287d7a2175b",
     "text": "establishing hallucination as a largely corruption-intrinsic phe-. nomenon while also revealing that its strength is dataset-. dependent.Threshold- collapseunder pixelation — near-maximal. degradation already at severity 1 — and the newly identifiedLate-. Onset Collapseunder JPEG compression are both reproduced on. VOC across all four architectures, confirming these as robust,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 5
   },
   {
-    "id": "61871d75-77e5-4664-acd5-b709fc163fb9",
+    "id": "3d5701a8-ea93-4bef-94e0-18d4e2cd4c12",
     "text": "dataset-independent failure signatures.. Beyond replicating the taxonomy qualitatively, we introduce. three quantitative instruments that turn \"does the taxonomy. transfer?\" into a measurable question. A cross-dataset transfer-. prediction analysis (Ridge regression under leave-one-corruption-. out cross-validation) shows that∆Rand∆Ltransfer strongly.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 6
   },
   {
-    "id": "549273d0-b3b0-4380-b0c5-c40be2b1afb2",
+    "id": "fc0227aa-59e3-4250-9880-03edea62ace4",
     "text": "from COCO to VOC (R2=0.84–0.95across three architectures),. whereas∆Pand∆Etransfer weakly and unevenly (R2as low as. 0.15for DETR), explainingwhythreshold-collapse and late-onset-. collapse — both∆R-driven — replicate reliably while hallucina-. tion does not. We further introduce the Failure Geometry Trans-. ferability Score (FGTS), which quantifies per-architecture tax-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 7
   },
   {
-    "id": "9b9dc5d6-2ab6-44e9-9d10-348ef7c45ec0",
+    "id": "5f399215-be4a-4ef3-b70a-bf6c42f9a30e",
     "text": "onomy stability directly (YOLOv8n=0.706, YOLOv9c=0.647,. DETR=0.471), numerically confirming that DETR is the leastdataset-stable architecture in our study. Finally, a two-way. ANOV A on∆Pconfirms a statistically significant model×dataset. interaction (F=8.41,p<0.001) even when restricted to the. three architectures with complete COCO and VOC coverage,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 8
   },
   {
-    "id": "4a439a8d-4ed9-466f-a945-529c049fe884",
+    "id": "62984e81-1d70-42b7-a734-38a7ca7c6a65",
     "text": "establishing that dataset-dependent hallucination behaviour is. a general architecture-dependent phenomenon rather than an. idiosyncrasy of a single model.. Cross-architecture ranking via the proposed Mean Corruption. Robustness Score (mCRS) places RT-DETR highest on both. datasets (mCRS COCO=0.9304, mCRS VOC=0.8916), but the rank-. ing of the remaining three models isnotdataset-invariant: DETR.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 9
   },
   {
-    "id": "4872e8ba-5ed5-4a01-88b8-64842ada3f1f",
+    "id": "7fb258af-d4e2-4dc6-a30f-48f50027e800",
     "text": "and YOLOv8n are statistically tied on COCO, whereas on VOC. DETR falls to last place (mCRS=0.8371) while YOLOv9c and. YOLOv8n remain close to their COCO-relative positions. We. show this rank instability is attributable in part to a precision-. denominator effect that inflates∆Pmagnitude on the lower-. object-density VOC images, and we discuss its implications for.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 10
   },
   {
-    "id": "cd55a4e5-b4a4-44b0-b32e-dcd9cf9de9b1",
+    "id": "a3611df9-66b5-406c-b4f2-c12b76262854",
     "text": "using single-dataset robustness rankings as deployment guidance.. Index Terms—Object detection, robustness, corruption, failure. analysis, YOLOv8, YOLOv9c, DETR, RT-DETR, calibration,. ImageNet-C, Pascal VOC, failure geometry, mCRS, cross-dataset. generalisation, transferability. I. INTRODUCTION. Deployed object detectors operate in environments that.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 11
   },
   {
-    "id": "1a18085a-cd64-49fb-8905-708df84fae77",
+    "id": "d53179bc-b9d4-407d-bcda-39baf78cce1e",
     "text": "look nothing like the clean, well-lit, high-resolution images. on which they are evaluated. Sensors introduce noise. Video. codecs compress frames. Rain, fog, and motion blur distort. spatial structure. These corruptions are not edge cases — they. are the ordinary conditions of real deployment in autonomous. driving, industrial inspection, surveillance, and medical imag-. ing [1], [20]..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 12
   },
   {
-    "id": "8005cf46-ea7f-4e63-b63c-b78087559481",
+    "id": "e8090978-d3cf-4d0a-befe-1e8084ee25e1",
     "text": "The standard response to this gap has been benchmarking:. measure how much mAP drops under each corruption type and. report the result [8]–[10]. This approach has produced valuable. empirical evidence, most notably the finding by Liuet al.that. robustness and clean accuracy are largely decoupled [10]. But. a drop in mAP tells us very little aboutwhya model failed.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 13
   },
   {
-    "id": "442de5fd-d077-4bbf-891f-86b04c359a16",
+    "id": "e5f347a1-8009-46ef-bb9a-937b640c7034",
     "text": "or what a practitioner should do about it, and — as we show. in this work — a robustness ranking measured on a single. [Page 2]. dataset can itself be misleading if it does not transfer to a. second, independently curated benchmark.. We argue that failure analysis for object detection requires. both amulti-dimensionaland across-datasetperspective. A.",
     "source": "failure-geometry (1)",
     "page": 2,
     "chunk_index": 14
   },
   {
-    "id": "22d4eab6-245f-4fa5-b4e4-733fc2f279dc",
+    "id": "5939fc73-dc2e-4aef-af62-bfe738229a99",
     "text": "model can fail through at least four distinct mechanisms:. (i) it misses detections that were previously found (recall. degradation,∆R); (ii) it generates spurious detections that. did not previously exist (precision inflation,∆P); (iii) its. remaining detections drift away from ground-truth boxes. (localisation error,∆L); or (iv) its confidence scores stop.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 15
   },
   {
-    "id": "0609094a-f574-4b34-a4a4-3fec1c4d7db6",
+    "id": "ff3bea98-2904-4824-95d3-a5f67c826bc1",
     "text": "reflecting detection accuracy (calibration shift,∆E). Each. mechanism has a different physical cause and demands a. different remedy. Crucially, whether a given failure mode is a. genuine property of the corruption — as opposed to an artefact. of one particular dataset’s object density, class distribution,. or annotation style — can only be established by repeating.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 16
   },
   {
-    "id": "04c17df4-8fbb-4651-b237-c21b03165ff6",
+    "id": "e26390e1-9fb6-40e9-9d55-bd29a7e9d947",
     "text": "the analysis on an independent benchmark, and, we argue, by. measuringthat transferability rather than only describing it. qualitatively.. Prior work has not measured all four failure dimensions. simultaneously, nor validated its conclusions on more than one. dataset, nor quantifiedhow muchof a robustness taxonomy. actually transfers. Calibration under corruption, in particular,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 17
   },
   {
-    "id": "7c887f74-547a-49b2-9f6c-8eb98b248930",
+    "id": "a2beaf74-3980-4ae4-819e-a838ce7a223b",
     "text": "has received almost no attention despite its safety implications:. a model that suppresses detections is problematic, but a model. that confidently hallucinates non-existent obstacles may be. worse [15], [16].. This work. We introduceFailure Geometry— an evaluation framework. that decomposes corruption-induced degradation into the four.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 18
   },
   {
-    "id": "40c7628c-a6e0-4932-a961-74385218e064",
+    "id": "9475b2c2-6612-4316-88dc-7ec8247b0f64",
     "text": "dimensions above and represents each corruption-severity con-. dition as a point in the resulting four-dimensional failure space.. We further extend the framework to a second, independent. benchmark (Pascal VOC) to test whether the resulting failure. taxonomy is a property of corruptions in general or an artefact. of COCO specifically, and we go beyond qualitative replication.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 19
   },
   {
-    "id": "cda66fae-cf04-40c4-8455-f4562665057f",
+    "id": "f7977181-bfbb-465c-adb3-a217bfea4d07",
     "text": "by introducing quantitative instruments for measuring transfer-. ability itself. The key technical contributions are:. •Aformal failure mode taxonomywith explicit deci-. sion rules for four modes: Suppression, Hallucination,. Threshold-Collapse, and Gradual Degradation, plus a fifth. mode —Late-Onset Collapse— observed under JPEG. compression across all architectures and, as we newly.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 20
   },
   {
-    "id": "d71a1017-8c1f-4c66-a46a-4610e6d81ee3",
+    "id": "b03325e2-cd05-4fc0-8be2-053726cecf49",
     "text": "show, across both datasets evaluated.. •Large-scale empirical evaluationof four detectors. (YOLOv8n, YOLOv9c, DETR, RT-DETR) under 17 cor-. ruption types×5 severity levels on the full COCO. val2017 dataset (5,000 images), yielding 85 evaluation. conditions per model.. •Cross-dataset validation on Pascal VOC: the same four. pretrained detectors, the same 17 corruptions, and the.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 21
   },
   {
-    "id": "dcbba04f-6991-4570-be36-5e116ec5a565",
+    "id": "de1efe09-c3c0-436e-a179-6440040badd8",
     "text": "same four-dimensional failure vector are re-evaluated on. Pascal VOC, making this — to our knowledge — the. first robustness study to test theconsistency of a failuretaxonomy, rather than only mAP degradation, across two. independently curated detection benchmarks.. •Cross-dataset failure-vector transfer prediction: using. Ridge regression under leave-one-corruption-out cross-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 22
   },
   {
-    "id": "cef7e2c5-65a2-4859-81dc-0f26f5684ffc",
+    "id": "ce8ebf22-d2c4-45c1-bd26-eab343f889b4",
     "text": "validation, we show that a model’s COCO failure vector. predicts its VOC failure vector with high accuracy for. ∆Rand∆L(R2=0.84–0.95) but low and architecture-. dependent accuracy for∆Pand∆E— to our knowledge. the first quantitative test ofwhich componentsof a. multi-dimensional failure vector transfer across detection. benchmarks, and a direct explanation for why some fail-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 23
   },
   {
-    "id": "72c46cdf-9578-4f57-8bbc-833046c09e68",
+    "id": "7f1d51df-fc3d-4b73-8691-03d601d15c66",
     "text": "ure modes (threshold-collapse, late-onset-collapse) repli-. cate reliably while others (hallucination) do not.. •TheFailure Geometry Transferability Score (FGTS),. a new formal metric that quantifies, per architecture,. the fraction of corruptions whose assigned failure-mode. label is identical on COCO and VOC. FGTS numerically. confirms the qualitative finding that DETR is the least.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 24
   },
   {
-    "id": "31b9a5a1-8214-40d2-a7bd-3b7b097ecc27",
+    "id": "01b598a6-f494-47ff-b05a-a942d6f5f44e",
     "text": "dataset-stable architecture in our study (FGTS=0.471,. versus0.706for YOLOv8n).. •Aformal statistical validationof the architecture×. dataset interaction underlying the hallucination finding:. a two-way ANOV A on∆P(model×dataset×cor-. ruption family) shows a highly significant model×dataset. interaction (F=8.41,p<0.001), confirming that dataset-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 25
   },
   {
-    "id": "0013591d-2b35-447d-b928-19cfdea056c1",
+    "id": "a86ddd71-97a7-415b-a045-c5584699a682",
     "text": "dependent hallucination behaviour is not an idiosyncrasy. of a single architecture but a broader, statistically robust. phenomenon, while family×dataset and model×family. interactions are not significant.. •Cross-architecture and cross-dataset validationof the. hallucination finding: zoom-blur-induced false-positive. inflation is confirmed across CNN-based (YOLOv8n,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 26
   },
   {
-    "id": "3e319f99-1dc7-4215-aec1-e4174b588840",
+    "id": "052bebc1-e0d7-42d9-a8eb-49e1b312405a",
     "text": "YOLOv9c), pure transformer (DETR), and hybrid (RT-. DETR) architectures on COCO, and is reproduced with. reduced magnitude for three of four models on VOC —. while also exposing a dataset-dependent sign flip for RT-. DETR that we analyse in detail.. •TheMean Corruption Robustness Score(mCRS), a. normalised multi-dimensional robustness scalar, together. with a safety-weighted variant mCRS w.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 27
   },
   {
-    "id": "05b8c77b-84c7-4082-ac5a-e5621c7248e9",
+    "id": "b65ac27e-79e9-4239-ad33-97ecf752bcb8",
     "text": "We show that. the cross-architecturerankingproduced by mCRS is only. partially stable across datasets: RT-DETR is the most. robust architecture on both COCO and VOC, but the. relative ordering of DETR and the YOLO models changes. between the two benchmarks.. •Afailure prediction experimentdemonstrating that. severity 1–3 failure vectors predict severity 4–5 behaviour.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 28
   },
   {
-    "id": "02ca9c0e-147f-4fed-9e1e-f96255067c69",
+    "id": "cd4aab90-2373-4f17-9add-a498ed1c3d83",
     "text": "withR2=0.76(YOLOv9c) on COCO andR2=0.83. (mean Overall_R2, Ridge regression) on VOC, providing. empirical grounding for the claim that failure geometry. is structured rather than stochastic on both benchmarks.. Our framework is complementary to existing large-scale. benchmarks: where Liuet al.[10] prioritise breadth (twelve. models, sixteen corruptions), we prioritise diagnostic depth.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 29
   },
   {
-    "id": "c72fe787-95ba-40b2-9000-24990870b4f4",
+    "id": "66e560ec-61c9-484c-81b1-5ff08dad8df4",
     "text": "across four failure dimensions, replication across two datasets,. [Page 3]. and — new to this extended study — direct quantitative. measurement of how much of that taxonomy actually transfers.. II. RELATEDWORK. A. Object Detection Architectures. The four models we evaluate span the main contemporary. architectural families. YOLOv8n [3] and YOLOv9c [4] belong.",
     "source": "failure-geometry (1)",
     "page": 3,
     "chunk_index": 30
   },
   {
-    "id": "b06a4eb4-a6e4-4583-88c9-a0bcc2b67b04",
+    "id": "ec6d11cd-18b5-4895-a4be-0f6f8f607fb4",
     "text": "to the YOLO lineage of single-stage convolutional detectors. — YOLOv9 introduces Programmable Gradient Information. (PGI) and a Generalised ELAN backbone, achieving higher. accuracy than YOLOv8 at comparable speed. DETR [6] re-. placed the conventional detection pipeline with a transformer. encoder-decoder and bipartite matching, eliminating anchor.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 31
   },
   {
-    "id": "503ca207-759f-412f-aa02-59582b4c128e",
+    "id": "d5802dc7-692d-46a1-ad6e-a6de63894a97",
     "text": "boxes and NMS at the cost of slower training convergence.. RT-DETR [5] retains the transformer decoder but replaces the. CNN backbone with a hybrid feature extractor, recovering. real-time speed while matching DETR-level accuracy. Two-. stage anchor-based detectors such as Faster R-CNN [7] remain. in wide deployment but are outside the scope of this study.. B. Robustness Benchmarks.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 32
   },
   {
-    "id": "b046a095-aa42-4bdd-9f77-e916882809a3",
+    "id": "d28f6053-00c0-4c3f-8dd3-b2fe9fdcf927",
     "text": "Hendrycks and Dietterich [9] established the ImageNet-C. protocol — fifteen synthetic corruption types at five severity. levels — as the standard for measuring classifier robustness.. Michaeliset al.[8] extended this to object detection, intro-. ducing COCO-C and demonstrating 30–60% mAP loss across. standard detectors. Liuet al.[10] subsequently ran the most.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 33
   },
   {
-    "id": "634a96d8-bcbe-4795-849e-5e21325950a2",
+    "id": "ac5931ed-21d3-4107-ae4c-80bdae05f62a",
     "text": "comprehensive study to date: twelve representative detectors,. sixteen corruptions, two datasets (COCO-C and BDD100K-C).. Their central conclusion — that a high clean-mAP detector. can simultaneously be brittle under corruption — directly. motivates our decomposition approach. Notably, even this two-. dataset study reports onlyaggregate mAP degradationon each.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 34
   },
   {
-    "id": "a89ea062-bcff-47c1-a171-954cac3b299d",
+    "id": "51c004e4-3747-4bf0-8fd9-46c9e4f6586d",
     "text": "dataset; it does not ask whether a multi-dimensional failure. taxonomy computed on one dataset survives evaluation on. the other, nor does it attempt toquantifytransferability with. a predictive model or a dedicated metric. This is precisely. the question our COCO/VOC comparison, transfer-prediction. analysis, and FGTS metric are designed to answer..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 35
   },
   {
-    "id": "e8975b4c-f202-4b4b-b043-1f90a93efbdd",
+    "id": "99f7ee78-476a-4aa5-94c8-aea96f319725",
     "text": "Everinghamet al.[2] introduced the Pascal VOC detec-. tion benchmark, which differs from COCO in object density. (VOC images typically contain fewer, larger objects across 20. categories rather than 80), scene composition, and annotation. protocol. These differences make VOC a natural stress test for. whether a corruption-robustness taxonomy generalises or is an.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 36
   },
   {
-    "id": "fc1b21d4-fc21-4ecd-bb2a-51d58e2bee18",
+    "id": "08bf2ef5-4223-4244-a735-edf94c496259",
     "text": "artefact of COCO’s particular statistics.. Maoet al.[11] introduced COCO-O, focusing on natural. distribution shifts (weather, sketch, cartoon) rather than syn-. thetic corruptions; Chhipaet al.[12] extended this to open-. vocabulary detectors. Neither work decomposes failure beyond. mAP, and neither cross-validates its findings on a second. detection dataset or proposes a transferability metric..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 37
   },
   {
-    "id": "5e684351-15b5-4576-8a19-3ed3b4f572d2",
+    "id": "3d17627e-cb21-4dd4-b9eb-e07099c119bd",
     "text": "C. Calibration and Reliability. Guoet al.[14] showed that modern neural networks become. systematically overconfident under distribution shift. Pathirajaet al.[15] extended this finding specifically to object detectors,. demonstrating miscalibration in both in-domain and out-of-. domain settings. Despite this, no existing robustness bench-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 38
   },
   {
-    "id": "9686fc75-3bcb-4078-b113-b9d615a571cc",
+    "id": "8b9c7d4c-3f44-474e-b987-bb6f1c7cc2e4",
     "text": "mark includes calibration as an evaluation dimension alongside. detection performance. We close this gap by including∆E. (ECE shift) as the fourth dimension of our failure vector, on. two datasets, and by showing that∆Eis itself among the. weakest-transferring dimensions across datasets.. D. Failure Analysis and Texture Bias. Geirhoset al.[18] showed that ImageNet-trained CNNs are.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 39
   },
   {
-    "id": "59b7c65d-896e-4358-88ca-f21e3558fda9",
+    "id": "42852f4f-1be8-412e-bfd9-6900a1b634c0",
     "text": "systematically biased toward high-frequency texture features. rather than global shape, making them sensitive to noise. corruptions that perturb local statistics. This bias partially ex-. plains our empirical observation that YOLOv8n and YOLOv9c. show higher recall degradation than DETR under impulse. noise on COCO. Adversarial robustness work [16], [17] has.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 40
   },
   {
-    "id": "34235e0f-04d7-4c61-91e7-22eed5fce134",
+    "id": "ddb8eaf7-fee4-4292-b021-e6aca548d786",
     "text": "documented hallucination-like behaviour under structured per-. turbations; we show analogous effects arise undernatural. corruptions, and that their strength is itself modulated by the. evaluation dataset — a modulation we now show is statistically. significant at the model×dataset level.. E. Research Gap. Table I summarises how this work relates to prior bench-. marks.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 41
   },
   {
-    "id": "c90a5527-2d0a-415b-916e-1087ee020f07",
+    "id": "fde1ef3a-6d51-4032-9ea8-137e9e296695",
     "text": "The key distinctions are dimensionality — we are the. first to jointly report∆R,∆P,∆L, and∆Ewith a formal. failure taxonomy — cross-dataset replication of that taxonomy,. and, new to this extended study, quantitative measurement. of that transferability via a predictive model, a dedicated. transferability score, and a formal statistical interaction test,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 42
   },
   {
-    "id": "b40b35b0-79f4-4352-979b-08fde50a8e44",
+    "id": "cf4aabd7-ff26-4b68-8b96-ca5e93b1b9bc",
     "text": "none of which any prior work in this line attempts.. III. PROPOSEDMETHODOLOGY. A. Problem Formulation. LetMbe a pretrained object detector andIan image from a. detection benchmarkD ∈ {COCO val2017,Pascal VOC}[1],. [2]. A corruption operatorC(·, s)at severitys∈ {1,. ,5}. produces a degraded image:. I′=C(I, s).(1). RunningMon bothIandI′yields clean predictionsM(I). and corrupted predictionsM(I′).",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 43
   },
   {
-    "id": "1dee69af-459e-4286-8b06-fc1b5369ea84",
+    "id": "7ecbfc4c-27a3-410d-8555-4507c2d53c94",
     "text": "The per-image failure vector. Fmeasures degradation across four axes:. F= [∆R,∆P,∆L,∆E].(2). Every quantity below is computed identically on both datasets. so that differences in the resulting failure geometry can be. attributed to the data rather than to the metric definitions.. B. Four-Dimensional Failure Vector. Detections are matched to ground truth by greedy IoU.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 44
   },
   {
-    "id": "18e56f33-c8ff-472d-9f74-6cd7108d3917",
+    "id": "beeef897-77f6-45a8-a34a-342d61f845a4",
     "text": "assignment at threshold 0.5, consistent with the COCO pro-. tocol [1]. LetTP c,FP c,FN cdenote true positives, false. positives, and false negatives under clean conditions, and. similarly for the corrupted case.. [Page 4]. TABLE I. COMPARISON OFFAILUREGEOMETRY WITH PRIOR OBJECT DETECTION ROBUSTNESS BENCHMARKS.✓=FULLY ADDRESSED;◦=PARTIALLY. ADDRESSED; × =NOT ADDRESSED..",
     "source": "failure-geometry (1)",
     "page": 4,
     "chunk_index": 45
   },
   {
-    "id": "8862a3d6-e1ca-420f-bf98-f523ee6d63c9",
+    "id": "f86eba9a-ac04-4ecd-b7fd-d5bb198bbadb",
     "text": "Method / Work Venue Models DatasetsFailure DimensionsTaxonomy / mCRS Quantified transferability. ∆R∆P∆L∆E. Michaeliset al.[8] NeurIPS-W’19 6 3◦× × × × ×. Liuet al.[10] IJCV’24 12 2◦× × × × ×. Maoet al.[11] ICCV’23 20 1◦× × × × ×. Chhipaet al.[12] ECCV-W’24 3 3◦× × × × ×. Hendrycks & Dietterich [9] ICLR’19 – ImageNet-C◦× × × × ×. Failure Geometry (Ours)–4 2 (COCO, VOC)✓ ✓ ✓ ✓ ✓ ✓.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 46
   },
   {
-    "id": "1a4a411d-708f-4f56-9430-86af9f6c5c36",
+    "id": "472a1309-a083-497f-86f7-13b9d3edcd5e",
     "text": "◦for∆Rin prior work indicates that recall-like information is partially recoverable from mAP, but is not independently reported or analysed.∆P,∆L,. ∆Eare not reported by any prior work. “Quantified transferability” refers to a predictive model, a dedicated transferability metric, or a formal interaction. test of cross-dataset consistency; no prior work reports any of these.. ∆R=TPc−TP d.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 47
   },
   {
-    "id": "fd238475-2d44-472b-8a26-aa5cfe9b7fc6",
+    "id": "487dfd64-c447-4501-b6e7-01792ac66b23",
     "text": "nGT,∆P=FPd−FP c. nGT(3). wheren GT= max(1,|GT|)is the number of ground-. truth boxes. A positive∆Rmeans objects are being missed;. positive∆Pmeans false positives haveincreased— what. we term hallucination. Becausen GTis the mean number. of ground-truth boxesper image, and Pascal VOC images. contain substantially fewer annotated objects on average than.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 48
   },
   {
-    "id": "738e5b6d-95af-4050-97e1-bbdd302b4a7a",
+    "id": "7f1934bc-b63e-409f-8c13-aefe0b132150",
     "text": "COCO images, the same absolute change in false positive. count produces a larger∆Pmagnitude on VOC. We return to. this denominator effect in Section IV-C.. Localisation quality is measured via Generalised IoU [19]:. ∆L= GIoU c−GIoU d (4). where the mean is taken over matched true-positive detections. only. Calibration is measured by Expected Calibration Error. over ten confidence bins [14]:.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 49
   },
   {
-    "id": "b8c2e0bd-92d6-4f12-b9a3-a87abdc8943e",
+    "id": "f63ec3a1-0866-4efd-a548-9f8d8b3b9711",
     "text": "∆E=ECE d−ECE c.(5). C. Corruption Protocol. We apply 17 corruption types spanning four families at. five severity levels each (85 evaluation conditions per model. per dataset), extending the nine corruptions of the original. ImageNet-C protocol [9]:. •Noise (4):Gaussian noise, shot noise, impulse noise,. speckle noise.. •Blur (4):Defocus blur, motion blur, zoom blur, glass. blur..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 50
   },
   {
-    "id": "1edf75d9-4928-4dca-a664-b4c100ff0b78",
+    "id": "d929bb99-3a20-4634-81a1-7fecf391da9d",
     "text": "•Weather (4):Fog, frost, snow, spatter.. •Digital (5):JPEG compression, pixelation, brightness,. contrast, elastic transform.. All corruptions are implemented in pure NumPy and. OpenCV to avoid dependence on theimagecorruptions. package, enabling exact reproducibility across platforms and. datasets. Severity parameters are calibrated to match the visual.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 51
   },
   {
-    "id": "5dc93263-be01-45e3-bf6a-e690ff4a5f63",
+    "id": "04d30ffa-23c2-4f2c-90b7-228645ec21b0",
     "text": "intensity of the original ImageNet-C implementations and are. held fixed between the COCO and VOC runs.D. Failure Space. Per-image failure vectors are aggregated across the eval-. uation set to produce a mean vector ¯Fc,sfor each corrup-. tion–severity pair, separately for each dataset. These17×5 =. 85mean vectors form afailure spaceinR4per dataset..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 52
   },
   {
-    "id": "3f244891-5f62-4b07-91c9-67705f772c10",
+    "id": "3eed11f4-a4a4-42d6-b068-739d830adcdf",
     "text": "Hierarchical clustering with Ward linkage on this space reveals. whether corruption types form natural groupings, and linear. regression across severity levels (R2) quantifies trajectory. predictability. Repeating this analysis on both COCO and VOC. lets us test whether the resulting cluster topology and taxon-. omy assignments are dataset-specific or corruption-intrinsic.. E.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 53
   },
   {
-    "id": "ea3e5d0b-c73d-4fe0-a38b-7f86a2442e84",
+    "id": "099f304c-6a66-405e-9624-aa11734c46e9",
     "text": "Formal Failure Mode Taxonomy. Decision rules are applied to each corruption’s trajectory to. assign one or more failure modes, identically on both datasets:. Definition 1 (Suppression):∆R >0.3and∆P <0at. severity 3 — dominant recall loss withfewerfalse positives.. Definition 2 (Hallucination):∆P >0at severity≥3—. net false-positive inflation under corruption..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 54
   },
   {
-    "id": "24008599-99ea-460c-9cb1-9af74bb53a16",
+    "id": "2ab07789-ff5f-4b67-ba66-c0feaf8896c2",
     "text": "Definition 3 (Threshold-Collapse):Var(∆R) s∈1..5 <0.01. andmax(∆R)>0.15— severity-invariant catastrophic. failure that saturates at severity 1.. Definition 4 (Gradual Degradation):R2(∆R)>0.85. across severities — linear, predictable recall trajectory.. Definition 5 (Late-Onset Collapse):R2(∆R)<0.80and. ∆Rs=5>3×∆R s=3— sub-linear growth that terminates in. a sharp high-severity collapse.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 55
   },
   {
-    "id": "08b85d18-5c29-466b-8949-bb6b70479ea3",
+    "id": "e8ef6b0c-0fea-4152-b9b8-366ea4f914a7",
     "text": "This mode was first identified. on COCO and, as we show in Section IV-C, reproduces on. VOC for JPEG compression across all four architectures.. A corruption may satisfy more than one definition simul-. taneously (e.g. a corruption can be both a Suppression and a. Threshold-Collapse case); we record the full labelsetassigned. to each corruption on each dataset, which is the input to the.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 56
   },
   {
-    "id": "92d78268-a82b-4a0f-ae2d-f0d29a1c617e",
+    "id": "dbe7377e-1c4a-4983-95b6-467f0d2e2c9a",
     "text": "FGTS metric introduced below.. F. Mean Corruption Robustness Score. For each model and dataset, dimensions are normalised. by their observed maximum across all conditionswithin that. [Page 5]. dataset:. ˆFc,s,d=|¯Fc,s,d|. max c′,s′|¯Fc′,s′,d|.(6). The mCRS is then:. mCRS= 1−1. |C| · |S|X. c,s∥ˆFc,s∥2. |F|(7). where|F|=4. mCRS∈[0,1]; higher values indicate greater. robustness.",
     "source": "failure-geometry (1)",
     "page": 5,
     "chunk_index": 57
   },
   {
-    "id": "57939c34-28e6-4123-93f4-2a24e517e724",
+    "id": "1c051d9f-e0cc-40c7-b9cb-24c33fee55a6",
     "text": "Per-dataset normalisation means mCRS values are. comparablewithina dataset but should be read as relative. rankings rather than absolute cross-dataset scores; we therefore. report mCRS separately for COCO and VOC and discuss the. ranking, not the raw magnitude, as the object of cross-dataset. comparison. A safety-weighted variant mCRS wassigns weight.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 58
   },
   {
-    "id": "77e85e26-d337-4cd9-b71a-64337c36a244",
+    "id": "45c7bfe2-a883-41e7-ab77-5f131b30f8cb",
     "text": "2 to∆Rand∆L(reflecting their primacy in safety-critical. deployment) and weight 1 to∆Pand∆E, normalised so the. total weight is 6.. G. Cross-Dataset Failure-Vector Transfer Prediction. To move from a qualitative claim of replication to a. quantitative one, we test whether a model’s COCO failure. vectorpredictsits VOC failure vector at the level of indi-. vidual corruption–severity conditions.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 59
   },
   {
-    "id": "1eba3b20-33b3-4c64-9c29-fee32d2d988e",
+    "id": "6289a384-5f25-4bfd-a3b6-4fbb00e9e80b",
     "text": "For each modelM, let. xc,s=¯FCOCO. c,s∈R4andy c,s=¯FVOC. c,s∈R4be the paired. COCO and VOC failure vectors for corruptioncat severity. s. We fit a multi-output Ridge regressiony=Wx+band. evaluate it underleave-one-corruption-outcross-validation:. for each of the 17 corruptions, all five of its severity levels. are held out as the test fold, and the model is trained on.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 60
   },
   {
-    "id": "ba319ee8-be65-4094-96e4-a5c7134bdce6",
+    "id": "5f26321a-0b4d-4bcc-8e82-b9ccdac45e1d",
     "text": "the remaining 16 corruptions’ 80 conditions. This grouping. prevents leakage between severities of the same corruption,. which would otherwise inflateR2. We report both an overall. R2(uniform average across the four output dimensions) and. a per-dimensionR2, since our central question is precisely. whichcomponents of the failure vector transfer and which do. not.. H.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 61
   },
   {
-    "id": "b7a6977b-d348-4020-9a03-c94853107ac4",
+    "id": "e6453277-5a95-4520-bb05-9620ab0e2ec1",
     "text": "Failure Geometry Transferability Score (FGTS). The formal taxonomy of Section III-E assigns each cor-. ruptionc, for a given model and dataset, a label setL D(c)⊆. {Suppression, Hallucination, Threshold-Collapse, Gradual, Late-Onset-Collapse, None}. from Definitions 1–5. We define the Failure Geometry. Transferability Score for a modelMas the fraction of.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 62
   },
   {
-    "id": "64587294-0467-412a-8543-860a7583ae3c",
+    "id": "d161adf8-5ce1-4f8e-b4f6-1cc1adc5c703",
     "text": "corruptions whose COCO and VOC label sets are identical:. FGTS(M) =1. |C|X. c∈C⊮[L COCO(c) =L VOC(c)].(8). FGTS∈[0,1]; a value of 1 means every corruption is assigned. exactly the same failure mode(s) on both datasets, while 0. means no corruption’s taxonomy label survives the transfer.. Unlike the mCRS ranking-stability discussion in Section IV-C,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 63
   },
   {
-    "id": "17c6dd7e-d3a8-422c-b9e6-032dbe43d7be",
+    "id": "b5a86e12-bc10-448a-bf93-723393906a07",
     "text": "which concerns therelative ordering of models, FGTS con-. cerns theconsistency of a single model’s own diagnostic. labelsacross datasets, and can be computed independently. for any architecture with complete taxonomy data on both. benchmarks.I. Statistical Validation of the Architecture×Dataset Interac-. tion. The hallucination finding (Section IV-C) is, on its face,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 64
   },
   {
-    "id": "9b338e18-2d2b-4c2c-8aed-684440bbc459",
+    "id": "b0c40acd-5a31-43ff-a635-54a8e1029021",
     "text": "driven by a single striking observation: RT-DETR’s zoom-. blur∆Pflips sign between COCO and VOC. To test whether. dataset-dependent hallucination behaviour is a broader, sta-. tistically robust phenomenon rather than an artefact of one. architecture, we fit a two-way ANOV A on severity-5∆P. with factors Model, Dataset (COCO/VOC), and Corruption.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 65
   },
   {
-    "id": "f0c6486b-a886-4b35-8e5d-97f2d0d3b4c5",
+    "id": "7968a702-4729-404c-99cb-2d99746f5af6",
     "text": "Family (Noise/Blur/Weather/Digital), restricted to the three. architectures (YOLOv8n, YOLOv9c, DETR) with complete. ∆Pdata on both benchmarks:. ∆P∼Model+Dataset+Family+Model×Dataset+Family×Dataset+Model×Family.. (9). A significant Model×Dataset interaction term would indicate. thathow∆Pshifts between datasets itself depends on which. architecture is being evaluated — precisely the claim un-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 66
   },
   {
-    "id": "8b2d12a5-9366-432e-9e4c-a33eb61a03ff",
+    "id": "dfedc962-3240-4151-8af4-fabf21798c90",
     "text": "derlying our discussion of RT-DETR’s sign flip, now tested. formally and, crucially, without relying on RT-DETR’s own. (incomplete) COCO data.. IV. EXPERIMENTS ANDRESULTS. A. Experimental Setup. We evaluate four pretrained detectors, without any dataset-. specific fine-tuning, on two benchmarks:. •COCO val2017[1] — 5,000 images, 36,781 ground-truth. boxes, 80 categories..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 67
   },
   {
-    "id": "feada6d7-f360-48fd-bec6-99ac7fbdd512",
+    "id": "a9bcf6cd-9edf-4cc5-9819-9eea90c7a6df",
     "text": "•Pascal VOC[2] — 20 categories, evaluated with the. same 17 corruptions×5 severities protocol.. Model configurations are held fixed across both datasets:. •YOLOv8n[3] — CSPDarknet backbone, nano variant.. Confidence threshold 0.25.. •YOLOv9c[4] — GELAN backbone with PGI, compact. variant (≈51M parameters). Confidence threshold 0.25.. •DETR[6] — ResNet-50 encoder, transformer decoder..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 68
   },
   {
-    "id": "1b8167fa-4865-4657-a03a-43cdb32ffcfa",
+    "id": "59857c28-f262-407f-8c6c-902df0fff56c",
     "text": "Confidence threshold 0.70.. •RT-DETR[5] — hybrid backbone with transformer. decoder, large variant (≈67M parameters). Confidence. threshold 0.25.. All models use the same pretrained (COCO-trained) weights. on both evaluation sets; no VOC-specific fine-tuning is per-. formed. This is a deliberate methodological choice: it allows. us to isolate the effect ofevaluation-image statistics(object.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 69
   },
   {
-    "id": "8ae6b2d7-5ae0-44e2-a466-df0c4cad822c",
+    "id": "0c9e2707-8567-4f5f-8906-4633a2836b1e",
     "text": "density, scene composition, category distribution) on the fail-. ure geometry, holding the model itself constant. We discuss. the resulting caveats in Section V-F. IoU threshold for TP/FP. assignment is 0.5 throughout, on both datasets. Because RT-. DETR’s COCO evaluation is missing archived per-corruption. vectors for several low-degradation conditions (Section V-F,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 70
   },
   {
-    "id": "9a8cd44e-1a0a-4b7b-90d7-fc10dbe01407",
+    "id": "e0b22cbe-ac33-4345-bf2e-4a70c12b936a",
     "text": "limitation 5), the transfer-prediction (Section IV-C3), FGTS. (Section IV-C4), and ANOV A (Section IV-C5) analyses below. are computed on the three architectures with complete COCO. and VOC coverage (YOLOv8n, YOLOv9c, DETR); mCRS. rankings and the zoom-blur case study continue to include. RT-DETR, for which complete VOC data is available.. [Page 6]. TABLE II.",
     "source": "failure-geometry (1)",
     "page": 6,
     "chunk_index": 71
   },
   {
-    "id": "6a7902b1-3b6e-45e3-ad77-eff3d26bf9d5",
+    "id": "1aa6fbb2-086a-4e36-8426-10ae40ed766e",
     "text": "COCOVAL2017:OVERALL AND PER-FAMILY MCRS.. Model mCRS mCRS w Noise Blur Weather Digital. RT-DETR0.9304 0.9412 0.95230.8819 0.9506 0.9355. YOLOv9c 0.9002 0.9182 0.9153 0.82390.99030.8769. DETR 0.8734 0.8959 0.8449 0.8041 0.9762 0.8693. YOLOv8n 0.8728 0.8956 0.8440.80340.97580.8687. TABLE III. PASCALVOC:OVERALL AND PER-FAMILY MCRS (SAME MODELS,. CORRUPTIONS,AND METRIC DEFINITIONS ASTABLEII)..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 72
   },
   {
-    "id": "7ae76379-5f61-4bef-a616-2ffd02395c11",
+    "id": "aac2e992-39bf-4aca-b404-00d450ce360d",
     "text": "Model mCRS mCRS w Noise Blur Weather Digital. RT-DETR0.8916 0.92020.8882 0.8031 0.97340.8995. YOLOv9c 0.8907 0.91510.8909 0.8247 0.98750.8659. YOLOv8n 0.8694 0.8944 0.8290 0.8120 0.9741 0.8640. DETR 0.8371 0.8610 0.7668 0.7532 0.9676 0.8559. B. COCO Results Summary. Table II reports the COCO mCRS ranking, reproduced from. our original single-dataset study. RT-DETR achieves the high-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 73
   },
   {
-    "id": "1cea348b-b504-4d7e-966d-4efbf085102a",
+    "id": "4315c095-0ebc-4a04-b825-a65c6f982f63",
     "text": "est overall robustness (mCRS=0.9304); DETR and YOLOv8n. are statistically indistinguishable (=0.8734vs.0.8728).. C. Cross-Dataset Validation on Pascal VOC. We now repeat the identical evaluation pipeline on Pascal. VOC to test whether the COCO-derived failure taxonomy and. mCRS ranking generalise.. 1) mCRS ranking on VOC:Table III reports the VOC. mCRS ranking.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 74
   },
   {
-    "id": "eaa62c51-39c0-479f-8802-e92ec8262ad5",
+    "id": "480d8295-0ab5-42ad-9c6b-d624ff89b80a",
     "text": "RT-DETR remains the most robust architec-. ture (mCRS=0.8916), consistent with COCO. However, the. ordering of the remaining three models changes: YOLOv9c. (=0.8907) and YOLOv8n (=0.8694) retain relatively strong. robustness, while DETR falls tolastplace (mCRS=0.8371). — a materially larger gap than the near-tie observed between. DETR and YOLOv8n on COCO. DETR’s weather-family.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 75
   },
   {
-    "id": "9330fda8-ab91-4b20-9b40-35d58cb09ce0",
+    "id": "6c81a244-1391-499b-8ec4-f66dc54f120e",
     "text": "robustness remains high on VOC (=0.9676), but its noise. (=0.7668) and blur (=0.7532) robustness are the lowest of. any model on either dataset.. Table IV makes the rank shift explicit: RT-DETR and. YOLOv9c hold their COCO ranks on VOC, but DETR and. YOLOv8n swap places, with DETR’s drop being the larger. effect. This is the central cross-dataset finding of this work.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 76
   },
   {
-    "id": "ee64c15f-69f9-4b55-9e55-708b0e46a65f",
+    "id": "cf1a04d8-811f-40ed-abaa-8653d9367f00",
     "text": "—a single-dataset mCRS ranking should not be treated as. a dataset-independent robustness ordering, even though the. identity of themostrobust architecture (RT-DETR) does trans-. fer. Sections IV-C3–IV-C5 below quantifywhythis instability. occurs and how far it extends.. 2) Hallucination under zoom blur, revisited:Table V. compares zoom-blur-induced∆Pat severity 5 across both. datasets.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 77
   },
   {
-    "id": "1070d4a3-0bc9-403a-a430-46e88ac01f67",
+    "id": "dd089446-6237-4511-92ca-67179c40c4d5",
     "text": "On COCO, all four models hallucinate (positive∆P).. On VOC, YOLOv8n and DETR still hallucinate, YOLOv9c is. essentially neutral (≈0.001), and RT-DETR flips to a large. negativevalue (−0.762).TABLE IV. OVERALL MCRS: COCOVS. VOC,SHOWING THE RANK SHIFT. RANK IN. PARENTHESES.. Model mCRS (COCO) mCRS (VOC). RT-DETR 0.9304 (1) 0.8916 (1). YOLOv9c 0.9002 (2) 0.8907 (2). DETR 0.8734 (3–4) 0.8371 (4).",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 78
   },
   {
-    "id": "eb1b1242-c7ae-4b9a-8d3a-46584e635c0f",
+    "id": "d9faa833-71fb-4616-ad38-608bebafcb63",
     "text": "YOLOv8n 0.8728 (3–4) 0.8694 (3). TABLE V. ZOOM-BLUR∆PAT SEVERITY5: COCOVS. VOC.. Model∆P(COCO)∆P(VOC). YOLOv9c+0.264 +0.001. DETR+0.226 +0.137. YOLOv8n+0.225 +0.068. RT-DETR+0.084−0.762. We attribute this divergence to two compounding factors.. First, the∆Pdenominatorn GTis the mean number of. ground-truth boxes per image; VOC images contain markedly.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 79
   },
   {
-    "id": "8ee7b040-eb7d-4a4f-a310-be75b42f4db1",
+    "id": "02339d55-283c-4be2-ab35-e66229ca29a3",
     "text": "fewer annotated objects than COCO images, so a given. absolute change in false-positive count is amplified into a. larger-magnitude∆P. This is visible acrossallcorruptions. for RT-DETR on VOC, not only zoom blur — its VOC failure. vectors show∆Pvalues in the−0.06to−1.08range (e.g.. −1.075under motion blur), an order of magnitude larger than.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 80
   },
   {
-    "id": "957cd6de-a74e-46bf-8e4a-74830c65703e",
+    "id": "8e840bac-878f-4aa1-841e-25f8f502c8ca",
     "text": "the−0.01to−0.28range observed for the other three models. on the same dataset. Second, RT-DETR’s hybrid backbone and. different NMS behaviour under VOC’s larger, less cluttered. objects may suppress the boundary- replica false positives that. drive hallucination on COCO. Taken together, we conclude. thatzoom-blur hallucination is a real and partially corruption-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 81
   },
   {
-    "id": "7de7ec8a-6145-4623-a5a1-f4ef5aeb57a4",
+    "id": "043f56ba-ddbd-493b-a9aa-2f2c4b8f1770",
     "text": "intrinsic phenomenon, since it survives in three of four archi-. tectures on a second dataset, but that its magnitude and even. its sign are sensitive to dataset-specific object statistics — a. nuance invisible to any single-dataset study, and one we now. show (Section IV-C5) is statistically systematic rather than. anecdotal.. 3) Cross-dataset failure-vector transfer prediction:Ta-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 82
   },
   {
-    "id": "5a0b1e46-0c42-4456-bf38-33a1f863d514",
+    "id": "32c17d0d-f92a-4819-89a7-5509bc106f8b",
     "text": "ble VI reports leave-one-corruption-outR2for predicting each. model’s VOC failure vector from its COCO failure vector. (Section III-G). Two of the four failure dimensions transfer. strongly and consistently across all three architectures:∆R. (R2=0.885–0.953) and∆L(R2=0.836–0.924). The remain-. ing two dimensions transfer weakly andunevenly:∆Pranges.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 83
   },
   {
-    "id": "d63c142f-ba10-4e42-bd8b-d7d4f2e71cb2",
+    "id": "47c7131f-4635-4d2e-ade7-975f32879059",
     "text": "from0.699–0.735(YOLOv8n, YOLOv9c) down to just0.151. for DETR, and∆Eis weak or slightly negative for all three. models (as low as−0.068for YOLOv9c, indicating COCO’s. calibration shift carries essentially no predictive information. about VOC’s calibration shift for that architecture).. This result directly explains the pattern of replication ob-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 84
   },
   {
-    "id": "5400abd8-3ce1-41db-89f8-1d49b67ab33e",
+    "id": "3a2b533e-068b-4699-90d4-d8f69ebd65a0",
     "text": "served elsewhere in this study: threshold-collapse and late-. onset-collapse are both defined purely in terms of the∆R. trajectory (Definitions 3 and 5), and∆Ris precisely the. [Page 7]. TABLE VI. LEAVE-ONE-CORRUPTION-OUTR2FOR PREDICTINGVOCFAILURE. VECTORS FROMCOCOFAILURE VECTORS(RIDGE REGRESSION).. Model Overall∆R∆P∆L∆E. YOLOv8n 0.7310.9530.7350.9240.313. YOLOv9c 0.5990.9300.6990.836−0.068.",
     "source": "failure-geometry (1)",
     "page": 7,
     "chunk_index": 85
   },
   {
-    "id": "87d1513f-1698-42a1-9375-c6198e4afbe5",
+    "id": "29f21dbd-91d7-45ae-92ce-0e599725dadf",
     "text": "DETR 0.6060.8850.1510.9210.466. TABLE VII. FAILUREGEOMETRYTRANSFERABILITYSCORE(FGTS)PER. ARCHITECTURE.. Model FGTS Matching corruptions. YOLOv8n0.70612/17. YOLOv9c 0.647 11/17. DETR 0.471 8/17. Pooled 0.608 31/51. dimension that transfers most strongly across datasets — con-. sistent with both modes reproducing on VOC for essentially. every architecture (Sections IV-C.3–IV-C.4). Hallucination, by.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 86
   },
   {
-    "id": "70d0b38d-d524-4d9a-a2cf-ee8eea1a42c8",
+    "id": "46f176a8-8d87-4d2f-a8e4-ea90d07db3e8",
     "text": "contrast, is defined in terms of∆P(Definition 2), the weakest-. and most unevenly-transferring dimension, which is consistent. with hallucination being onlypartiallycorruption-intrinsic and. sensitive to dataset-specific object statistics. In short: whether. a failure mode survives a change of evaluation dataset is, to a. substantial degree, predictable from which component of the.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 87
   },
   {
-    "id": "c62b2abb-fe89-44db-be50-cf12c54f12c7",
+    "id": "11557a1b-71a5-4e9d-b461-ec461858a397",
     "text": "failure vector defines it.. 4) Failure Geometry Transferability Score:Table VII re-. ports FGTS (Section III-H) for the three architectures with. complete taxonomy data on both datasets. YOLOv8n has. the highest taxonomy stability (FGTS=0.706; 12 of 17 cor-. ruptions keep an identical label set on VOC), YOLOv9c. is intermediate (FGTS=0.647), and DETR is the least sta-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 88
   },
   {
-    "id": "e94ab5e3-e706-4acc-816f-f6e8eedc76cd",
+    "id": "30047626-f495-43a1-b3d0-4719dfa100e5",
     "text": "ble (FGTS=0.471; only 8 of 17 corruptions match). Pooled. across the three models, 31 of 51 corruption–architecture pairs. (=0.608) retain their COCO-derived label on VOC.. FGTS provides a single, model-level number that cor-. roborates, at the level of individual corruptions rather than. aggregate mCRS, the same ordering suggested by Table IV:.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 89
   },
   {
-    "id": "38a9d95a-949c-4e63-88ac-d452da046651",
+    "id": "ad9c1e27-01ac-4933-9788-3a40a722c6bd",
     "text": "DETR is the architecture whose failure diagnosis is least. trustworthy when transferred to a new evaluation benchmark,. and the effect is not confined to a single headline corruption. (zoom blur) but is visible across roughly a third to a half of. the full 17-corruption suite.. 5) Formal validation: architecture×dataset interaction:. Table VIII reports the two-way ANOV A on severity-5∆P.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 90
   },
   {
-    "id": "fcf1e7de-d03f-4975-88ce-d26534639b4b",
+    "id": "a69578f2-1170-4461-956b-ec4956d0b6a3",
     "text": "described in Section III-I, restricted to YOLOv8n, YOLOv9c,. and DETR (the three architectures with complete∆Pdata. on both datasets). The Model×Dataset interaction is highly. significant (F=8.41,p=0.00047), even though RT-DETR —. the architecture with the most visually striking sign flip — is. entirely excluded from this test. The Dataset main effect is.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 91
   },
   {
-    "id": "da535294-22ba-4f4b-9492-3a1b3b891df6",
+    "id": "90fdc977-cc38-41e4-b0b1-a8afed1c1626",
     "text": "also significant (F=18.12,p=0.00005):∆Pshifts substan-. tially more negative on VOC than on COCO for all threeTABLE VIII. TWO-WAYANOVAON SEVERITY-5∆P(YOLOV8N, YOLOV9C, DETR;. n=102CORRUPTION×MODEL×DATASET OBSERVATIONS).. Factor dfF p. Model 2 7.06 0.0015. Dataset 1 18.12 0.00005. Family 3 4.27 0.0075. Model×Dataset28.41 0.00047. Family×Dataset 3 1.36 0.260. Model×Family 6 0.60 0.730. TABLE IX.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 92
   },
   {
-    "id": "bd9accc6-12e1-4e7d-bf13-c43e324c091a",
+    "id": "9ba7241c-063e-4a3b-95be-54fedaf7b183",
     "text": "PIXELATION∆RBY SEVERITY, PASCALVOC.. Modelsev 1 sev 3 sev 5 Trajectory. YOLOv8n 0.850 0.853 0.864 Flat. YOLOv9c – – 0.944 Flat. DETR 0.570 0.573 0.573 Flat. RT-DETR – 0.648 0.702 Sub-linear. models, consistent with the precision-denominator effect (Sec-. tion V-C). By contrast, neither the Family×Dataset interac-. tion (p=0.260) nor the Model×Family interaction (p=0.730). reaches significance..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 93
   },
   {
-    "id": "863a5b57-039f-4c2b-80b5-ca284098f4c7",
+    "id": "1d82195c-81c3-4fc3-b953-ef21754c1d9f",
     "text": "The practical reading of Table VIII is thathow muchand. evenwhich direction∆Pmoves between COCO and VOC. depends significantly on which architecture is evaluated, but. not on which corruption family is applied. Mean∆Pat. severity 5 moves from−0.081(COCO) to−0.036(VOC) for. DETR — a comparatively small shift — but from−0.082. to−0.275for YOLOv8n and from−0.061to−0.307for.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 94
   },
   {
-    "id": "5aeba2b7-0c53-4dc9-a0fd-ff4028c4b3bf",
+    "id": "084fd34e-26fb-423d-935e-3b35849900bb",
     "text": "YOLOv9c, both substantially larger shifts in the same di-. rection. This establishes that dataset-dependent hallucination. / precision behaviour, first flagged as an RT-DETR-specific. anomaly in Table V, is in fact a general property of the. model×dataset relationship that holds even among the three. architectures where RT-DETR’s own data quality issue does. not apply..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 95
   },
   {
-    "id": "98f5360c-1817-4d37-adaa-dc50f509b414",
+    "id": "7aecd796-a03c-46ee-b6c8-b92cd959be37",
     "text": "6) Threshold-collapse under pixelation, revisited:Table IX. confirms threshold-collapse under pixelation on VOC for three. of four architectures: YOLOv8n, YOLOv9c, and DETR all. reach>85%of their severity-5∆Ralready at severity 1,. mirroring the COCO pattern. RT-DETR shows a milder, sub-. linear rise (R2=0.827rather than near-flat), but its severity-1.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 96
   },
   {
-    "id": "862483b4-1522-4c74-b1ab-43c77befe6e3",
+    "id": "94510697-26db-413f-8d24-dd22563dc990",
     "text": "value (0.648, from the severity-3 heatmap read at the earliest. available point) is still the majority of its severity-5 value. (0.702), so the qualitative signature — most of the damage. occurring at low severity — still holds.. 7) Late-onset collapse under JPEG compression, revisited:. The Late-Onset Collapse mode — mild degradation through.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 97
   },
   {
-    "id": "91de9dd5-df80-46b7-a5c9-9f3e615e8bbf",
+    "id": "0e5dbbbd-f7ec-499e-8d01-be9dbf7d7a13",
     "text": "severity 3 followed by a sharp acceleration at severity 4–5 —. reproduces on VOC for all four models (Table X). The effect. is, if anything, more pronounced on VOC than on COCO for. YOLOv8n and YOLOv9c, whose severity-5∆R(0.750 and. 0.760 respectively) is roughly4–6×their severity-3 values.. This is the strongest cross-dataset confirmation in our study:. [Page 8]. TABLE X.",
     "source": "failure-geometry (1)",
     "page": 8,
     "chunk_index": 98
   },
   {
-    "id": "d238a639-3005-4ae4-b9d8-60ba32e2ac3c",
+    "id": "e3fc97be-cb35-4610-8074-b0e73945c478",
     "text": "JPEGCOMPRESSION∆R:SEVERITY3VS.SEVERITY5, VOC.. Modelsev 3 sev 5 Ratio (sev5/sev3). YOLOv8n 0.118 0.750 6.4×. YOLOv9c 0.068 0.760 11.2×. DETR 0.163 0.556 3.4×. RT-DETR 0.021 0.201 9.6×. every architecture, on both an 80-category and a 20-category. benchmark, shows the same qualitative late-onset signature. under JPEG compression, supporting the claim that this failure.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 99
   },
   {
-    "id": "7303d5d0-fecf-4053-85b1-0a08a04aafa0",
+    "id": "e99385db-ad5f-4b6a-a43b-7a61382c0989",
     "text": "mode reflects a genuine threshold in JPEG artefact geometry. rather than a property of either dataset — and is, as Table VI. shows, exactly the kind of∆R-driven signature our transfer-. prediction analysis predicts should replicate most reliably.. 8) Failure prediction on VOC:Ridge regression trained on. severity 1–3 failure vectors to predict severity 4–5 behaviour.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 100
   },
   {
-    "id": "085c55b0-42d2-424d-bbfc-996e12ca1741",
+    "id": "c6b1e5ab-e2e9-4766-b71c-68299eece54d",
     "text": "achieves an overallR2of0.694(DETR),0.832(YOLOv9c),. and0.738(RT-DETR) on VOC — comparable to, and in the. YOLOv9c case higher than, the COCO figures reported in. Section IV .G of the original study. This indicates that the. predictive structure of failure geometry is not an artefact. of COCO’s scale or annotation density. We note that this.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 101
   },
   {
-    "id": "52f6955e-4e43-4b49-aad4-5532bb2fdca9",
+    "id": "e1534bdd-35fd-425a-b20f-24239e1795c5",
     "text": "within-dataset severity-prediction task is conceptually distinct. from the cross-dataset failure-vector transfer prediction of. Section IV-C3: the former predicts a model’s own future. (higher-severity) behaviour on one dataset, the latter predicts. its behaviour on an entirely different dataset.. D. Dimension Orthogonality on VOC. The∆R–∆Lcorrelation on VOC isr≈0.96–0.99across.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 102
   },
   {
-    "id": "b09ed29c-cc54-44b6-91be-71e33206e5d3",
+    "id": "d9eba2e9-601e-4798-967b-004d5573a063",
     "text": "models (e.g.0.99for DETR,0.96for RT-DETR), essentially. matching the COCO figures (r≈0.94–0.96). This confirms. that the shared-causal-origin relationship between recall loss. and localisation error discussed in Section V .C is not COCO-. specific, and is consistent with∆Rand∆Lbeing precisely. the two dimensions shown in Table VI to transfer most reliably.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 103
   },
   {
-    "id": "5e3f6376-e51f-44fe-8108-16aae708257d",
+    "id": "708dfcbd-9d9e-4e2f-a69c-fd0643a5ca81",
     "text": "across datasets — a correlated pair is, unsurprisingly, also a. jointly transferable pair.. V. DISCUSSION. A. Failure as a Structured, Largely Dataset-Independent Phe-. nomenon. The most striking result of this extended study is that most. — but not all — of the failure geometry structure identified. on COCO survives unchanged on Pascal VOC, and thatwhich. parts survive is itself predictable.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 104
   },
   {
-    "id": "b8a141d1-2fe0-4dcc-a2d8-4d7c9433b76f",
+    "id": "e0f638bb-f138-4c49-bcc5-0608868cbcc2",
     "text": "Threshold-collapse under. pixelation and late-onset collapse under JPEG compression. reproduce with the same qualitative shape on both datasets. and across all four architectures, supporting the interpretation. that these failure modes are properties of the corruptions. themselves — a conclusion now reinforced by the observation. that both modes are defined on∆R, the failure dimension.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 105
   },
   {
-    "id": "9d20f635-f949-4b3e-925e-c74a754cd9dc",
+    "id": "490a0809-aacf-4bf5-a78a-2754166ca8f9",
     "text": "our transfer-prediction analysis shows transfers withR2>0.88. for every architecture tested. Hallucination under zoom bluris partially corruption-intrinsic (it survives for three of four. models) but is not fully dataset-invariant, and the overall. mCRS ranking is stable only for the top-ranked architecture. (RT-DETR) — again consistent with hallucination being de-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 106
   },
   {
-    "id": "35a02c98-149e-49ec-acfc-43109586142a",
+    "id": "d4d8be0a-195b-420f-bdaa-773eeff492f8",
     "text": "fined on∆P, the weakest- and most architecture-dependently. transferring dimension we measure.. B. Why Does DETR’s Ranking Drop on VOC?. DETR’s mCRS falls from a COCO tie for last place to an. outright last place on VOC, driven mainly by its noise (0.7668). and blur (0.7532) family scores — the lowest of any model on. either dataset. This ranking instability is corroborated at a finer.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 107
   },
   {
-    "id": "30217e66-2e3e-4080-a49b-1d7e83a5cfea",
+    "id": "ddeab129-a9b2-4151-a07d-29bf0faec271",
     "text": "grain by DETR’s FGTS of only0.471(Section IV-C4) — the. lowest of the three architectures we could score — indicating. that DETR’s individual per-corruption failure-mode diagnoses,. not merely its aggregate mCRS, are the least reliable across. a change of dataset. Two non-exclusive explanations are con-. sistent with our data. First, DETR’s learned object queries.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 108
   },
   {
-    "id": "6c56a22b-9ac4-4d3d-a82b-376a70a7a63d",
+    "id": "1c63da94-8721-41c0-b40f-2748044aed85",
     "text": "and bipartite matching were optimised against COCO’s object. density and scale distribution; VOC’s sparser, larger objects. may fall outside the region of query-to-object assignment that. DETR handles best under distribution shift, amplifying recall. loss under noise and blur. Second, DETR’s high operating. confidence threshold (0.70, required because DETR emits.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 109
   },
   {
-    "id": "48440cf4-e7d5-4a19-9c61-403615be52b2",
+    "id": "0322ed10-a93f-4ac8-ab2a-beefe0bf8a3a",
     "text": "many low-confidence proposals by default) was tuned for. COCO’s clean images; under corruption on VOC’s different. image statistics this fixed threshold may discard a larger. share of degraded true-positive detections than the adaptive. thresholds implicitly used by the YOLO family. We flag this. as a hypothesis supported by, but not conclusively proven by,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 110
   },
   {
-    "id": "60bda39f-233a-41b1-b559-533fe49b2833",
+    "id": "3fe4a985-76a5-4114-8e05-58528615a0fa",
     "text": "the present data — testing it directly would require sweeping. DETR’s threshold on VOC specifically, which we leave to. future work.. C. The Precision-Denominator Effect. RT-DETR’s∆Pvalues on VOC are consistently an order. of magnitude larger in absolute terms than on COCO or than. the other three models on VOC. Because∆Pis normalised. by the mean number of ground-truth boxes per image, and.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 111
   },
   {
-    "id": "618e3b55-597e-4313-aedf-2fee57a437c3",
+    "id": "8fa52d19-ffc7-4ace-8033-1222a1e03e07",
     "text": "VOC images contain fewer annotated objects than COCO. images, the same absolute false-positive count change pro-. duces a larger∆P. Critically, our ANOV A (Section IV-C5). shows this is not solely an RT-DETR artefact: the Dataset. main effect on∆Pis itself highly significant (p=0.00005). among the three architectures with complete data, and the.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 112
   },
   {
-    "id": "14fd4327-3366-4d0f-9621-1fd1288bf4c9",
+    "id": "bcf54100-9c25-4aea-9289-015269fcc326",
     "text": "Model×Dataset interaction (p=0.00047) shows thesizeof that. shift is architecture-dependent, with YOLOv9c (−0.061→. −0.307) and YOLOv8n (−0.082→ −0.275) shifting substan-. tially more than DETR (−0.081→ −0.036). This is a general. lesson for any robustness metric that normalises by object. count: cross-dataset comparison of raw∆Pmagnitude is not.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 113
   },
   {
-    "id": "ca954554-95a7-4b6c-b3ce-bd8a3731dec7",
+    "id": "db4c7028-dd11-463d-86e5-4258745d1556",
     "text": "meaningful without either (i) restricting to relative rankings. within a dataset, as we do for mCRS, or (ii) renormalising. by a dataset-specific reference statistic. We recommend the. latter as a direction for future work on cross-dataset failure. geometry.. [Page 9]. D. Dimension Orthogonality. The correlation between∆Rand∆Lacross corruption.",
     "source": "failure-geometry (1)",
     "page": 9,
     "chunk_index": 114
   },
   {
-    "id": "fbed1024-e6c8-4fcf-afdd-2f174b14f730",
+    "id": "97c58bff-5733-4a4b-bd5a-efc569d1a92e",
     "text": "conditions isr≈0.94–0.99for all models on both datasets —. substantially higher than desirable for a claimed orthogonal de-. composition. This correlation reflects a genuine co-occurrence:. corruptions that destroy spatial structure tend to both miss. more detectionsanddegrade localisation in the remaining. ones, driven by the same upstream cause. The dimensions are.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 115
   },
   {
-    "id": "6f112d09-3906-4e60-8253-bbc32256ee23",
+    "id": "9b587ac3-6bc2-4774-bb07-6f397a147146",
     "text": "nevertheless diagnostically distinct:∆Lis defined only over. matched true-positive detections, while∆Rcaptures objects. that were not detected at all. We treat this as shared causal. origin rather than redundancy, a conclusion strengthened by its. replication on VOC and by the fact that these two correlated. dimensions are also, as Table VI shows, the two that transfer.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 116
   },
   {
-    "id": "c48553bd-5b38-45f5-9492-0568f17ef82f",
+    "id": "e9ad8e26-c355-4359-9662-01edffa6eabc",
     "text": "most reliably across datasets.. E. Deployment Risk. Table XI translates the failure taxonomy into a practitioner-. facing risk classification, ranking corruptions by worst-case. ∆Rat severity 5 across all evaluated models and flagging. which risk assessments are confirmed on both COCO and. Pascal VOC. Corruptions whose failure mode is∆R-driven.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 117
   },
   {
-    "id": "b22df944-9787-4738-b873-826d3a4591c3",
+    "id": "35397ebc-8d1f-4b6d-89a5-31a616843866",
     "text": "(Threshold- Collapse, Late-Onset Collapse, most Suppression. cases) carry a “Critical” or “High” rating that, per Table VI,. we have direct quantitative grounds to trust across deploy-. ment domains with different object-density statistics. The one. “Critical” entry whose underlying mechanism (∆P-driven. hallucination) is explicitly flagged as dataset-dependent is.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 118
   },
   {
-    "id": "2d207640-8dcd-48e6-9d57-1dc7b2331a20",
+    "id": "37d0a991-a723-4d62-ae18-e6ba42c9b3cc",
     "text": "Zoom Blur; practitioners deploying on imagery with markedly. different object density than the benchmark used for validation. (e.g. moving-camera platforms with sparse scenes) should treat. this specific risk assessment with the caveat established in. Sections IV-C3 and IV-C5, rather than assuming it transfers. with the same reliability as the∆R-driven risks above it.. F. Limitations.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 119
   },
   {
-    "id": "e6a05e37-c6cb-4ad1-b3c1-f38513a59483",
+    "id": "294bb8fa-82aa-46bf-9cfe-a11026572ed1",
     "text": "Several limitations should inform interpretation of these. results.. First, the high per-image standard deviation (mean std. ≈0.31on COCO, comparably high on VOC) reflects genuine. heterogeneity in both datasets — scenes vary enormously. in object count, size distribution, and clutter. Failure vector. magnitudes should be interpreted as population-level averages,. not per-image predictions..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 120
   },
   {
-    "id": "6fdedc48-8108-4c73-81bb-247625e85abe",
+    "id": "a0f81887-70c7-43ca-b9f6-316b63db1f54",
     "text": "Second, all four detectors are evaluated on VOC using. COCO-trainedweights, with no VOC-specific fine-tuning.. This is intentional — it lets us attribute failure-geometry. differences to evaluation-image statistics rather than to dif-. ferences in training data — but it also means our VOC. results characterise cross-domain transfer robustness rather.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 121
   },
   {
-    "id": "8176900f-7a4a-4033-a684-b590f5c257dc",
+    "id": "140500b6-ebaa-4835-9bfd-474148b914ae",
     "text": "than the robustness of a detector natively trained and deployed. on VOC-distributed imagery. A fully controlled study would. additionally evaluate VOC-native fine-tuned weights; we leave. this to future work.TABLE XI. DEPLOYMENT RISK CLASSIFICATION BASED ON WORST-CASE∆RACROSS. EVALUATED MODELS AT SEVERITY5,CONFIRMED ON BOTHCOCOAND. PASCALVOC.. Corruption Mode Risk Scenario.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 122
   },
   {
-    "id": "084e98bb-5ec8-463f-91f5-fceab4ada371",
+    "id": "e1b61ec2-652a-4639-8121-5c5e47766cc7",
     "text": "Pixelate Threshold-Collapse Critical Low-bandwidth. transmission. Zoom Blur Hallucination (dataset-dependent) Critical Moving camera. platforms. JPEG Sev.5 Late-Onset Collapse Critical Compressed. video streams. Glass Blur Suppression Critical Dirty / frosted. optics. Impulse Noise Suppression High Sensor fault con-. ditions. Motion Blur Suppression High High-speed plat-. forms.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 123
   },
   {
-    "id": "8cadeb40-594a-4b8d-9d31-4406131ff0a0",
+    "id": "71b0f7bf-0cfa-423f-9fb0-24c64648d22e",
     "text": "Gaussian Noise Suppression High Low-light. sensors. Defocus Blur Gradual Medium Fixed-focus cam-. eras. Fog Gradual Medium Outdoor deploy-. ment. Snow Gradual Medium Winter. environments. Brightness Gradual Low Lighting. variation. Third, the∆Pdenominator effect described in Section V .C. means that raw cross-dataset∆Pmagnitudes are not di-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 124
   },
   {
-    "id": "f7e9ed19-a24b-4db0-badf-ae15ff2311ba",
+    "id": "03acfb05-558b-433c-80cf-fe0df1fa2660",
     "text": "rectly comparable; only within-dataset rankings (as used for. mCRS) should be treated as robust. We view a dataset-density-. normalised∆P∗metric as a natural and low-cost extension of. the present work, and leave its full validation to a subsequent. revision.. Fourth, the∆R–∆Lcorrelation (r >0.94on both datasets). indicates that the four dimensions are not fully orthogonal..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 125
   },
   {
-    "id": "b5b9a96a-5ff6-4065-993e-fe4a62873691",
+    "id": "d4b6a632-3192-492d-94cd-4332efad22c4",
     "text": "Future work should explore decoupled formulations of∆L—. for instance, restricting to images where both clean and corrupt. predictions yield at least one true positive — to reduce shared. variance with∆R.. Fifth, RT-DETR’s COCO evaluation covered 4,952 of. 5,000 images (48 skipped due to missing annotations) and. detailed per-corruption vectors for several low-degradation.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 126
   },
   {
-    "id": "ea767227-f21d-4f3f-888b-76c7ae4cfd50",
+    "id": "8c394de8-94d3-4440-b441-4e149a07d1e7",
     "text": "weather/digital conditions were not archived for that run; this. affects per-family mCRS reliability for RT-DETR on COCO. specifically and does not apply to the VOC re-evaluation. reported here, which is complete across all 17 corruptions. As. a direct consequence, the transfer-prediction (Section IV-C3),. FGTS (Section IV-C4), and ANOV A (Section IV-C5) analyses.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 127
   },
   {
-    "id": "fce373df-def7-4445-8467-c9ed24726055",
+    "id": "7bb057ce-c866-43b5-9839-95fcd23c6023",
     "text": "introduced in this extended study are computed on the three. architectures with complete bilateral coverage (YOLOv8n,. YOLOv9c, DETR); extending them to RT-DETR once its. COCO archive is completed is a direct and low-cost item. of future work, and would let us test directly whether RT-. DETR’s zoom-blur sign flip is an extreme instance of the.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 128
   },
   {
-    "id": "64a7819e-0df5-4e47-b6e2-16a5fce5eb1a",
+    "id": "f422964f-5353-4ace-9788-85c3a6657c1d",
     "text": "same Model×Dataset interaction we already establish among. the other three architectures, or a qualitatively distinct effect.. [Page 10]. VI. CONCLUSION. We have introduced Failure Geometry, a framework for. decomposing object detection robustness into four orthogonal. failure dimensions —∆R,∆P,∆L,∆E— and, in this ex-. tended study, tested it for the first time across two independent.",
     "source": "failure-geometry (1)",
     "page": 10,
     "chunk_index": 129
   },
   {
-    "id": "72b51e25-180c-4b27-a348-788562c7e68a",
+    "id": "a7a7af3d-2864-4d53-9de0-e985e64a5e5b",
     "text": "detection benchmarks: COCO val2017 and Pascal VOC, four. architectures, and 17 corruption types at five severities each. (170 evaluation conditions per model in total).. The central empirical finding is that failure behaviour is. largely, but not entirely, structurally consistent across both. architectures and datasets — and, new to this extended.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 130
   },
   {
-    "id": "524a00d0-ec50-4824-9e70-77ea8ee2ab57",
+    "id": "22ac15b3-8622-4679-b293-da4c593af6d4",
     "text": "study, we show that this consistency is itself measurable. and predictable rather than purely qualitative. A cross-dataset. transfer-prediction analysis shows that∆Rand∆Lcarry over. from COCO to VOC withR2=0.84–0.95, while∆Pand. ∆Etransfer weakly and architecture-dependently (as low as. R2=0.15for DETR) — directly explaining why threshold-.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 131
   },
   {
-    "id": "1e01f5e5-734f-48b2-919e-fb6887062709",
+    "id": "82c349f8-54d0-4b83-9e28-5cf5084a1605",
     "text": "collapse under pixelation and the newly identified late-onset. collapse under JPEG compression (both∆R-driven) reproduce. on VOC for every architecture, while zoom-blur hallucination. (defined on∆P) is only partially corruption- intrinsic and not. dataset-invariant in magnitude or sign. The Failure Geome-. try Transferability Score quantifies this instability directly at.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 132
   },
   {
-    "id": "d4a130d3-9baa-4c32-ad61-572af174e912",
+    "id": "6e783c87-1d5b-4753-9eb1-688c2a3a1cc9",
     "text": "the architecture level (YOLOv8n=0.706, YOLOv9c=0.647,. DETR=0.471), and a formal two-way ANOV A confirms a. statistically significant Model×Dataset interaction on∆P. (F=8.41,p<0.001) even among the three architectures un-. affected by RT-DETR’s data-completeness limitation — es-. tablishing that dataset-dependent hallucination is a general,.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 133
   },
   {
-    "id": "114a2eb4-8edb-45cb-aabb-dafacb12c4aa",
+    "id": "ae8cabb1-fa16-4853-b631-230b0257a1cf",
     "text": "statistically robust architectural phenomenon rather than a. single-model anomaly. The mCRS ranking places RT-DETR. highest on both datasets, but the relative ordering of DETR and. YOLOv8n reverses between COCO and VOC, a rank instabil-. ity we trace partly to a precision-normalisation denominator. effect driven by VOC’s lower average object density..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 134
   },
   {
-    "id": "836144f4-f596-4aa6-b1aa-26a44fe5a5d7",
+    "id": "d0f53833-092e-49b7-b642-5f28a0bec7c4",
     "text": "We hope that the Failure Geometry framework — its five. formally defined failure modes, its transfer-prediction and. FGTS instruments formeasuringrather than merely describing. cross-dataset consistency, and this first statistically validated. cross-dataset stress test of a multi-dimensional robustness tax-. onomy — provides a richer and more trustworthy vocabulary.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 135
   },
   {
-    "id": "92ab1460-f455-44d5-a6f9-502a4d4b9046",
+    "id": "b3603509-57a5-47cd-9c94-3e495c219710",
     "text": "for robustness evaluation in safety-critical object detection. than single-dataset scalar metrics allow.. REFERENCES. [1] T.-Y. Linet al., “Microsoft COCO: Common Objects in Context,” in. Proc. ECCV, 2014.. [2] M. Everingham, L. Van Gool, C. K. I. Williams, J. Winn, and A.. Zisserman, “The Pascal Visual Object Classes (VOC) Challenge,”Int.. J. Comput. Vis., vol. 88, no. 2, pp. 303–338, 2010..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 136
   },
   {
-    "id": "23c3a65d-8dfa-45d1-a8bc-18364089fd5d",
+    "id": "19e3ce69-a6f0-4203-9309-bd4d4e052704",
     "text": "[3] J. Jocheret al., “Ultralytics YOLOv8,” 2023. [Online]. Available: https:. //github.com/ultralytics/ultralytics. [4] C.-Y. Wanget al., “YOLOv9: Learning What You Want to Learn Using. Programmable Gradient Information,” inProc. ECCV, 2024.. [5] Y. Zhaoet al., “DETRs Beat YOLOs on Real-time Object Detection,”. inProc. CVPR, 2024.. [6] N.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 137
   },
   {
-    "id": "67c0f97f-c034-4f41-bde5-3fc5c4434d64",
+    "id": "a0e9b6af-8f82-48a5-b495-207c7ee4f6b5",
     "text": "Carionet al., “End-to-End Object Detection with Transformers,” in. Proc. ECCV, 2020.[7] S. Renet al., “Faster R-CNN: Towards Real-Time Object Detection with. Region Proposal Networks,” inProc. NeurIPS, 2015.. [8] C. Michaeliset al., “Benchmarking Robustness in Object Detection:. Autonomous Driving when Winter is Coming,”arXiv:1907.07484, 2019.. [9] D. Hendrycks and T.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 138
   },
   {
-    "id": "d4e1840c-8d16-4071-a44f-f6d3b96574d7",
+    "id": "254eb011-d8ca-49b8-836e-6e6e6b23af4f",
     "text": "Dietterich, “Benchmarking Neural Network Ro-. bustness to Common Corruptions and Perturbations,” inProc. ICLR,. 2019.. [10] J. Liu, Z. Wang, L. Maet al., “Benchmarking Object Detection Robust-. ness against Real-World Corruptions,”Int. J. Comput. Vis., vol. 132,. no. 10, pp. 4398–4416, 2024.. [11] X. Maoet al., “COCO-O: A Benchmark for Object Detectors under. Natural Distribution Shifts,” inProc.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 139
   },
   {
-    "id": "4d55ab60-78d7-49d9-9205-b25543a7fdcf",
+    "id": "b571a6d0-5020-479b-9796-bcc7b1eae282",
     "text": "ICCV, 2023.. [12] P. C. Chhipaet al., “Investigating Robustness of Open-V ocabulary. Foundation Object Detectors under Distribution Shifts,” inProc. ECCV. Workshops, 2024.. [13] R. Taoriet al., “Measuring Robustness to Natural Distribution Shifts in. Image Classification,” inProc. NeurIPS, 2020.. [14] C. Guoet al., “On Calibration of Modern Neural Networks,” inProc.. ICML, 2017.. [15] B.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 140
   },
   {
-    "id": "a98ba293-78bd-40b5-bbef-df469cbea1f3",
+    "id": "d0134337-4fcf-4283-8c65-535cf4811c01",
     "text": "Pathiraja, M. Gunawardhana, and M. H. Khan, “Multiclass Con-. fidence and Localization Calibration for Object Detection,” inProc.. IEEE/CVF CVPR, pp. 19734–19743, 2023.. [16] C. Szegedyet al., “Intriguing Properties of Neural Networks,” inProc.. ICLR, 2014.. [17] I. Goodfellowet al., “Explaining and Harnessing Adversarial Examples,”. inProc. ICLR, 2015.. [18] R.",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 141
   },
   {
-    "id": "3995d7c0-0e98-45fb-966b-b5a953cb1b7b",
+    "id": "713cdb3b-3c9b-495f-8da4-e16c9681254b",
     "text": "Geirhoset al., “ImageNet-trained CNNs Are Biased Towards Tex-. ture,” inProc. ICLR, 2019.. [19] H. Rezatofighiet al., “Generalized Intersection over Union: A Metric. and A Loss for Bounding Box Regression,” inProc. CVPR, 2019.. [20] Z. Songet al., “Robustness-Aware 3D Object Detection in Autonomous. Driving: A Review and Outlook,”arXiv:2401.06542, 2024..",
     "source": "failure-geometry (1)",
     "page": null,
     "chunk_index": 142
   },
   {
-    "id": "f346fd52-8031-4cb5-9bf3-6f1df62fa4ad",
+    "id": "489f46af-0edb-4e49-9d05-2b2057bec271",
     "text": "[Page 1]. 1. FairRoute++: Quantifying the Fairness Disconnect. Between Routing and Prediction. Parth Thaker1, Hiral Chauhan2, Dr. Narendrasinh Chauhan3 1M.Tech Student, A.D. Patel Institute of. Technology, The CVM University. thakerparth12@gmail.com2M.Tech Student, A.D. Patel Institute of Technology, The CVM University. hiralchauhan@gmail.com3Professor and Head of Department, A.D.",
     "source": "fairtree-fdi",
     "page": 1,
     "chunk_index": 0
   },
   {
-    "id": "4a2a0957-5953-4da3-8877-f4ab8b00052f",
+    "id": "4afc7916-a624-423a-946e-147ca258293b",
     "text": "Patel Institute of Technology, The. CVM University. head.it@adit.ac.in. Abstract—Fairness-aware learning has moved from a nice-to-. have to a hard requirement wherever machine learning touches. consequential decisions. A growing line of work on Mixture-of-. Experts (MoE) routing takes a shortcut, though: it treats a fair. router as proof of a fair model. We show that shortcut can mis-. lead.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 1
   },
   {
-    "id": "e61c2e33-8aea-4afa-8d8e-4eb6b55077e9",
+    "id": "c517e853-8dbf-4514-be8a-340e26002fdb",
     "text": "Routing assignments can be pushed to near-independence. from a sensitive attribute while the model’s final output keeps a. striking amount of demographic signal intact – a gap we term the. Fairness Disconnect. We propose FairRoute++, a sparse-routing. framework that regularizes latent features, routing decisions,. and predictions jointly through multi-stage adversarial training.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 2
   },
   {
-    "id": "aa6c8863-95c6-4a9c-9247-2f5ff143e7e6",
+    "id": "ffb2a701-77b2-45ee-9ebf-c527fc1a4f51",
     "text": "rather than debiasing the router alone. To make the gap measur-. able, we introduce theFairness Disconnect Index (FDI), built from. routing attenuation and residual prediction leakage. Six tabular. benchmarks – income prediction, recidivism, credit scoring,. healthcare, and a controlled synthetic setting – all show the same. behavior: driving routing mutual information toward zero barely.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 3
   },
   {
-    "id": "b214df03-d12c-43d8-81a0-50a326aefc64",
+    "id": "29dc0539-1b34-4855-a1b4-de9e93eac916",
     "text": "dents prediction-level leakage. We then ask whether this is a. tabular quirk. It is not. Repeating the protocol on two vision. datasets (CelebA, FairFace) with a convolutional MoE, and on a. text classification benchmark, reproduces the disconnect under. a different modality and architecture. Seven classical baselines,. a prediction-level mitigation study, two independent mutual-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 4
   },
   {
-    "id": "82387d8c-c1ae-42cf-822f-605da10305ba",
+    "id": "1dc116ec-73b4-424f-8bbd-439b2aa48fc3",
     "text": "information estimators, and a component ablation round out. the evidence. Across every angle we tried, one conclusion holds:. routing fairness and prediction fairness are distinct properties,. and mistaking one for the other overstates how fair a system. actually is.. Index Terms—Mixture-of-Experts, Sparse routing, Fair-. Route++, Fairness Disconnect, Fairness Disconnect Index, Ad-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 5
   },
   {
-    "id": "e7623b69-e87c-42e3-a9c7-6dc157ac482b",
+    "id": "70851922-eb73-4b86-a95e-7861906a5565",
     "text": "versarial learning, Prediction leakage, Mutual information, Ex-. plainable AI.. I. INTRODUCTION. Machine learning now sits upstream of decisions that used. to be made by people alone – who gets a loan, who gets. flagged as high-risk, who gets a callback. Once a model shapes. outcomes like these, demographic fairness stops being a nice-. to-have and becomes part of the specification [6], [16].",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 6
   },
   {
-    "id": "634fd425-e9f1-4c5c-8070-c02b82e49dab",
+    "id": "d8498551-6e5f-4aef-9927-cba2c99b5d49",
     "text": "A large. body of work has responded by building systems that suppress. biased correlations without giving up too much accuracy.. Three broad strategies dominate this space: pre-processing,. which reshapes the training data itself; in-processing, which. bakes fairness constraints into the optimization; and post-. processing, which patches predictions after training [1], [2],. [5].",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 7
   },
   {
-    "id": "98f2cff8-4b9b-4f94-a74e-00ca03d525a8",
+    "id": "772420c4-e30b-42cf-9373-3de98b7798bf",
     "text": "The in-processing camp leans heavily on adversariallearning, where a discriminator tries to guess the sensitive. attribute from a representation while the encoder is pushed,. via the same loss, to make that guessing hard [4], [23]. This. recipe works well on ordinary architectures. Sparse routing. has largely sat outside its reach.. Sparse Mixture-of-Experts (MoE) models have become pop-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 8
   },
   {
-    "id": "92ef835c-82c7-411d-9a05-0353532cf1cb",
+    "id": "f57733d9-8901-4206-b770-d076821ba19b",
     "text": "ular for a simple reason: they scale capacity without paying. the full compute bill, since only a handful of experts fire per. input [13]–[15]. Because the router decides which experts see. which inputs, it looks like the natural lever for fairness – and. several recent papers pull exactly that lever, regularizing or. adversarially debiasing the router directly. The implicit bet is.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 9
   },
   {
-    "id": "b4764ea5-122a-46a8-925a-3b1e7f4f269a",
+    "id": "1def2015-4c62-4567-bb84-9376e41a89fe",
     "text": "straightforward: strip the sensitive attribute out of routing, and. the rest of the model should follow.. That bet has barely been tested. A modern MoE is not. just a router; it is a router sitting in front of dense latent. features, per-expert transformations, and an aggregation step. that recombines everything before prediction. Even once the.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 10
   },
   {
-    "id": "ec5b5529-00af-45fa-a677-c1c3f3900667",
+    "id": "549746da-24c5-4a5a-938c-0bd1304123af",
     "text": "router looks clean, these downstream stages can still carry. demographic signal forward – which means routing-level. fairness, taken alone, says very little about whether sensitive. information ever actually leaves the system.. That gap sets up the question this paper is built around:. Does fair routing necessarily imply fair prediction?. Most evaluation protocols answer this implicitly by only.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 11
   },
   {
-    "id": "5fc07739-75c2-4e77-a867-e0d26275be9d",
+    "id": "2cdfa37e-8370-45dc-a41c-169176b718ce",
     "text": "ever checking routing statistics or latent-space properties. That. is a partial view. A router can pass every fairness test on. the books while the model’s final output still gives away the. sensitive attribute to anyone who probes for it. When that. happens, an evaluation anchored solely on routing behaviour. ends up flattering the model far more than it deserves..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 12
   },
   {
-    "id": "63545ecb-f27c-4c58-873a-39232055eb28",
+    "id": "ce4695d6-37f8-405f-8a57-f6a357801984",
     "text": "We name this failure mode theFairness Disconnect: a. discrepancy between how fair routing looks and how fair the. prediction actually is. Rather than stopping at the router, we. treat routing fairness as an intermediate checkpoint whose. value has to be verified downstream, at the point where a. decision is actually made.. Building on that framing, we introduceFairRoute++, which.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 13
   },
   {
-    "id": "db3419ac-a6e3-4759-a240-dd417d6fa214",
+    "id": "ce99b2df-7e42-4b34-894c-e5ea16bfbe54",
     "text": "regularizes latent representations, routing assignments, and. predictions together via multi-stage adversarial training, and. theFairness Disconnect Index (FDI), a single diagnostic. [Page 2]. 2. number that tells you whether a routing-level fairness gain. actually reached the output.. Six tabular benchmarks spanning income, criminal justice,.",
     "source": "fairtree-fdi",
     "page": 2,
     "chunk_index": 14
   },
   {
-    "id": "609fa75f-71d1-4071-ac04-fd57889699b9",
+    "id": "e331c183-5b7f-46d3-948b-f6cfacac480c",
     "text": "credit, health, and a controlled synthetic setup form the core. evidence, backed by mutual-information analysis, multiple-. estimator robustness checks, a mitigation study, sensitivity. sweeps, ablations, runtime profiling, and comparisons to both. plain and fairness-aware baselines. We then push the question. further: is this a tabular artifact? Two vision datasets and a.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 15
   },
   {
-    "id": "44d96e17-f29b-415d-9572-9abeabd1c2f5",
+    "id": "02bf0ea0-1a06-4028-b151-18db60561ca2",
     "text": "text-classification benchmark say no – the same pattern shows. up under a convolutional backbone and under a different data. modality entirely.. This paper’s contributions, in short:. •We isolate theFairness Disconnectand show, empirically,. that fair routing does not entail fair prediction.. •We buildFairRoute++, which jointly debiases latent.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 16
   },
   {
-    "id": "37111082-ce81-4663-887b-0e679d5c2729",
+    "id": "7456864d-2980-48d1-b26b-b6ca4a6af832",
     "text": "features, routing, and prediction via multi-stage adver-. sarial learning instead of treating the router as the whole. problem.. •We define theFairness Disconnect Index (FDI), quantify-. ing the gap between routing-level fairness and prediction-. level leakage.. •We validate the phenomenon across six tabular bench-. marks, two vision datasets, and a text-classification.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 17
   },
   {
-    "id": "e367cf4c-4c31-4447-a6b6-90182e864d25",
+    "id": "91555df3-128c-47cd-94d3-ed961b1aea21",
     "text": "benchmark, with robustness analyses, mitigation studies,. ablations, complexity profiling, and seven conventional. baselines – evidence that prediction leakage survives. statistically fair routing across modalities, not just in one. corner of the design space.. II. RELATEDWORK. Fairness research has spread across nearly every stage. of the learning pipeline over the last decade. The resulting.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 18
   },
   {
-    "id": "3cf1e279-a829-42b7-8754-730db2542c4f",
+    "id": "d8e78290-cb8f-4558-b3c2-aa368ac4da3f",
     "text": "landscape can be sorted, roughly, into representation learning,. adversarial debiasing, routing-level fairness, and information-. leakage analysis. Each of these lines has made real progress at. the stage it targets; none of them, as far as we can tell, checks. whether that progress survives to the final prediction.. A. Fair Representation Learning.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 19
   },
   {
-    "id": "980ea8dc-6e9f-448d-8f8e-059f1f23fd8e",
+    "id": "df591978-190e-4356-978d-71764e12ce37",
     "text": "The goal here is a latent space that keeps what the task. needs and drops what identifies protected groups. Zemel et al.. started this thread with representations explicitly optimized to. hide protected variables while staying useful for prediction. [3]; the Information Bottleneck line of work later gave this. trade-off a cleaner formal shape, trading task-relevant infor-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 20
   },
   {
-    "id": "044d1274-aec4-4fef-8925-4f275f6ea48c",
+    "id": "5b2628e1-ed5c-424a-85c1-44b04e38e40d",
     "text": "mation against compression of nuisance variables [9]. Since. then, mutual-information penalties, variational objectives, and. disentanglement have all been tried as ways to push latent. embeddings toward demographic invariance.. These methods reliably shrink bias measuredin the latent. space. What they generally assume – without checking – is that. a clean representation is the whole story.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 21
   },
   {
-    "id": "bc09eb41-e673-4e22-ad90-588358e56c20",
+    "id": "9d05e916-29f7-4066-9dd3-d9f781689cad",
     "text": "In a deep network,. later layers can reconstruct or exploit whatever demographic. signal is left scattered across the features, even when no single. feature looks incriminating on its own.B. Adversarial Fairness. Adversarial fairness is probably the most-used recipe in this. space. A discriminator tries to recover the sensitive attribute.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 22
   },
   {
-    "id": "73ac6378-b1f8-458d-9557-c927cdbfc574",
+    "id": "e993b4ab-bc25-4350-8dfd-ab87c1743310",
     "text": "from a representation; the encoder, trained against the same. signal through a gradient-reversal layer, learns to make that. recovery hard [4], [23]. Because it makes few assumptions. about the data distribution, this trick has been bolted onto a. wide range of fairness settings.. Later variants mix the adversarial loss with classification.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 23
   },
   {
-    "id": "adde7881-51ac-48d9-be87-2e4eaf6a1653",
+    "id": "a2da5734-a96d-4b95-b2b1-3f3ce1760183",
     "text": "losses or variational terms to trade accuracy against invari-. ance more gracefully. Even so, evaluation tends to stop at. representation-level statistics or standard group-fairness num-. bers. Whether the suppressed information quietly resurfaces. further downstream is a question these papers rarely ask.. C. Fairness in Sparse Routing Architectures.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 24
   },
   {
-    "id": "5ee3668a-e8d1-4073-887e-76698c0560ea",
+    "id": "0439d0e1-22ea-4d68-8601-0e55085c326b",
     "text": "Sparse MoE architectures activate a subset of experts per. input, which is how they get more capacity without a pro-. portional compute bill [13]–[15]. Since the router is what. decides expert assignment, it is the obvious target for fairness. interventions – and a handful of recent papers take exactly. that route, pushing routing assignments toward independence. from the sensitive attribute..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 25
   },
   {
-    "id": "8c36b514-3681-4e29-931c-ce6c5e6a250f",
+    "id": "801423c0-f87b-4c68-962c-bae14326d3ff",
     "text": "FairMoE and similar routing-regularization schemes are. representative here [19]: they report cleaner routing statistics. and improved conventional fairness metrics side by side. What. they do not check, at least not systematically, is whether a. debiased router actually translates into a debiased prediction.. That assumption is doing a lot of unexamined work.. D. Information Leakage Analysis.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 26
   },
   {
-    "id": "2cb9c03c-e4b1-4cac-a0f6-53f9bd6fe2cb",
+    "id": "a22b4419-1ecf-4d18-88d8-b1b448af1c53",
     "text": "A separate line of work uses information theory directly.. Mutual information quantifies how much a representation still. depends on a sensitive attribute; leakage analysis asks the. same question with an external probe, checking whether that. attribute can be recovered from internal states [8], [20]. This. toolkit shows up across fairness, privacy, and representation-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 27
   },
   {
-    "id": "377d93a4-eb51-474b-b4b2-f07505e36fc2",
+    "id": "9948c3b3-32f8-4e2f-8b8a-c5c9d5f74639",
     "text": "learning papers because it measures retained information. rather than a proxy for it.. Its blind spot is scope: leakage studies almost always look at. latent representations and stop there. Sparse routing introduces. an extra intermediate variable – the routing assignment –. whose relationship to downstream leakage has never been. mapped systematically. Without that mapping, there is no way.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 28
   },
   {
-    "id": "94e4ae6c-05cc-4b8c-bdc1-71f455888278",
+    "id": "52e28e03-9716-49f8-951a-74bb3ca80b02",
     "text": "to tell whether fairness gained at the router survives the rest. of the pipeline.. E. Research Gap. Routing-fairness methods have made real, measurable. progress at the router and in latent representations. What. none of them do is check whether that progress reaches the. prediction. Leakage-analysis work, symmetrically, measures. residual information in representations but rarely ties that.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 29
   },
   {
-    "id": "5ecde5d9-d158-409a-9d92-802cab7d6f66",
+    "id": "7abef091-d67e-4ef5-bb0f-74566d2a6d2e",
     "text": "measurement back to routing behaviour in sparse architectures.. This paper sits in that gap. We name the discrepancy the. Fairness Disconnect, proposeFairRoute++as a framework. [Page 3]. 3. that treats all three pipeline stages as first-class fairness targets,. and introduce theFairness Disconnect Index (FDI)so the gap. can be measured rather than assumed away.. III. PROPOSEDMETHOD. A. Motivation.",
     "source": "fairtree-fdi",
     "page": 3,
     "chunk_index": 30
   },
   {
-    "id": "ead7b47d-e002-4e6c-ae92-d14cac985ff0",
+    "id": "ac5dddf7-ca82-4128-bae3-0f93700fe779",
     "text": "The standard argument for router-only debiasing runs like. this: the router decides which expert sees which input, so if. routing decisions are statistically independent of the sensitive. attribute, the rest of the pipeline should inherit that indepen-. dence. It is a reasonable-sounding argument, and it is why. most existing evaluation protocols stop at routing statistics or.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 31
   },
   {
-    "id": "a882b8cd-6ab8-4e75-894e-bbba9b705f1c",
+    "id": "2c36375c-4cc2-4508-9159-c821037694e2",
     "text": "adversarial routing losses.. But routing is one stage among several. A real MoE also. has a shared feature extractor, per-expert transformations, and. an aggregation step, all sitting between the router and the final. prediction. Whatever demographic signal survives in the latent. representation can ride through these stages untouched, even. after the router itself has been scrubbed clean..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 32
   },
   {
-    "id": "7a2b3c68-1ef5-43cf-8105-772e298bcb24",
+    "id": "71a7f322-4fe7-4335-8081-0a48b0ea60c8",
     "text": "Figure 1 sketches this information flow. An encoder maps. the input to a shared latentZ; a routing network turnsZ. into assignmentsR. Prior routing-fairness work targets the. dependence betweenRand the sensitive attributeSalmost. exclusively, on the (largely untested) premise that killing that. dependence is enough.. It is not enough, becauseRis not what produces the.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 33
   },
   {
-    "id": "b2703e23-f61f-41fb-95bd-b58d41291267",
+    "id": "e4d91d63-f08e-491e-8104-371a2eb81890",
     "text": "final output on its own.Zkeeps flowing – through the. experts, through aggregation, through the prediction head –. and whatever it still encodes aboutScan resurface there,. independent of how cleanRlooks.. This splits fairness into two distinct questions.Routing. fairnessasks whether the assignmentsRleak demographic. information.Prediction fairnessasks the same question of the. final outputˆy.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 34
   },
   {
-    "id": "10b1a99d-a35d-42b8-8f7d-0011cda11c95",
+    "id": "ce69efac-2dbd-4f03-83e5-68e35e6abc84",
     "text": "Prior routing-aware methods optimize only the. first and quietly assume the second follows. Our experiments. say that assumption fails often enough to matter.. We define theFairness Disconnectas exactly this: demo-. graphic information surviving in predictions despite routing. that looks statistically fair. Under this view, routing fairness is.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 35
   },
   {
-    "id": "d97c22cd-e45d-4dcb-b721-be27b2b48c6b",
+    "id": "8904bbf6-930c-48a1-b216-f0af0fb8c069",
     "text": "a checkpoint, not a destination – its value has to be confirmed. at the output, which is what motivates the Fairness Disconnect. Index (FDI) defined below.. FairRoute++ follows from this framing directly. Rather than. debiasing the router in isolation, it adds adversarial objectives. at the latent stage, the routing stage, and the prediction stage,.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 36
   },
   {
-    "id": "4b6ab932-9c9f-4a26-84ad-e7c141fc4a74",
+    "id": "94e8d881-9656-4b8c-91b0-b25944f92b7e",
     "text": "giving a single framework the ability to both improve fairness. end-to-end and expose the disconnect when improvement at. one stage fails to reach another.. B. FairRoute++ Architecture. FairRoute++ regularizes three pipeline stages at once –. the latent representation, the routing assignment, and the. prediction – rather than treating the router as a stand-in for. the whole system.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 37
   },
   {
-    "id": "5767759c-ffad-4f9f-9b5f-6bf96268b4d8",
+    "id": "02b6d185-750a-4c91-8e43-c1a79df79b61",
     "text": "Figure 2 lays out the full architecture.. Givenx∈Rd, a shared encoder produces. z=f θ(x),(1)wheref θis the encoder. Unlike routing-only baselines,. FairRoute++ tracks the demographic content ofzdirectly, not. just what happens to it after routing.. A softmax router turns the latent into a distribution over. experts,. r= Softmax(W rz+b r),(2). withr= [r 1,. , r K]the routing weights forKexperts..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 38
   },
   {
-    "id": "c727faf6-0c8a-4d69-8873-2d6f33fcb56c",
+    "id": "a54703b9-6e6f-4965-b26c-8752865448c2",
     "text": "Instead of hard-selecting one expert, FairRoute++ mixes all. of them softly, weighted byr. Each expert transforms the same. shared latent independently,. ek=gk(z), k= 1,. , K,(3). and the outputs combine as. e=KX. k=1rkek.(4). A lightweight Feature Fusion Module then merges the. shared latent back in alongside the aggregated expert output,.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 39
   },
   {
-    "id": "6dfca177-2c29-4e09-ad75-738d920bf3e9",
+    "id": "dc032045-cb58-4e8b-9773-7f04d4ea11ee",
     "text": "rather than feeding the predictor from routed features alone,. h=ϕ([z∥e]),(5). with[·∥·]concatenation andϕ(·)a small learnable fusion. network.. The prediction follows as. ˆy=σ(W ph+b p),(6). whereσ(·)is the output activation.. That fusion step is not decorative. It mirrors how real sparse. networks behave: the prediction depends on more than the.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 40
   },
   {
-    "id": "890236d3-d126-457d-8fa2-5de36fbb32d0",
+    "id": "bb4f4f4a-f749-48e3-9a06-d0d1d45cb40e",
     "text": "routed path, so demographic information trapped inzcan still. shapeˆyeven afterRhas been made independent ofS. This is. precisely why routing fairness and prediction fairness need to. be checked separately rather than assumed to move together.. C. Multi-stage Adversarial Learning. Most routing-fairness work stops at scrubbing demographic. information fromR. That helps at the router but leaves the.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 41
   },
   {
-    "id": "1a230f3e-5430-497a-9452-0a438638296d",
+    "id": "dccf3fd0-63e3-4d78-aa7d-f5c7035b6f49",
     "text": "latent representation and the prediction itself unconstrained.. FairRoute++ instead runs three adversarial objectives in par-. allel, one per pipeline stage.. 1) Latent Representation Adversary:The first adversary. sits on the encoder’s output and tries to recoverSfrom it,. ˆsZ=A Z(z),(7). withA Z(·)the latent-stage classifier.. A gradient-reversal layer connects encoder and adversary..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 42
   },
   {
-    "id": "c203b3b5-527b-4b0e-8b1a-3f2cb4ec317e",
+    "id": "0a684236-d04a-4629-a8e6-2a798737cc61",
     "text": "The adversary chases its own loss down; the encoder, through. the same gradient (flipped), is pushed to make that chase. harder. Formally,. LZ. adv= CE(ˆs Z, s),(8). withCE(·)binary cross-entropy.. [Page 4]. 4. Fig. 1. Overview of the proposed FairRoute++ framework. The encoder first learns a latent representationZ, which is processed by the fairness-aware router. to produce routing assignmentsR.",
     "source": "fairtree-fdi",
     "page": 4,
     "chunk_index": 43
   },
   {
-    "id": "598d0bb8-b46d-4d74-89a4-7bbc59368127",
+    "id": "bc71db36-5757-4ee1-8544-260aa899c25c",
     "text": "While routing fairness reduces demographic information available to the router, latent representations may still propagate. sensitive information to the prediction module. The proposed Fairness Disconnect Index (FDI) quantifies this discrepancy by jointly considering routing mutual. information and prediction leakage.. Fig. 2. Architecture of the proposed FairRoute++ framework.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 44
   },
   {
-    "id": "c0ec3b00-d3ed-4765-9183-2c88676425b3",
+    "id": "e32ce4df-481e-495a-b611-3c6cc50d5c25",
     "text": "The encoder first learns a shared latent representationZ, which is processed by the fairness-aware. router to obtain routing probabilitiesR. Two adversarial branches remove sensitive information from the latent representation (A Z) and routing assignments. (AR), respectively.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 45
   },
   {
-    "id": "9674a1eb-c37e-4812-baf4-880fab2799b6",
+    "id": "c811a0fc-1510-4907-9681-e269ca260fb6",
     "text": "The routing outputs are combined with the latent representation through the proposed Feature Fusion Module before the final prediction. is produced. This design enables FairRoute++ to jointly improve routing fairness while explicitly monitoring downstream prediction leakage.. [Page 5]. 5. 2) Routing Adversary:The second branch operates on the.",
     "source": "fairtree-fdi",
     "page": 5,
     "chunk_index": 46
   },
   {
-    "id": "0c684c8f-4f89-4e49-b668-4bb587c77b18",
+    "id": "c60e3e0e-c408-43a3-9d14-e7b0b0792603",
     "text": "routing distribution itself, trying to pullSback out ofr,. ˆsR=A R(r).(9). giving. LR. adv= CE(ˆs R, s).(10). A gradient-reversal layer here nudges the router toward. assignments that give the adversary as little to work with as. possible, while still keeping routing useful for the task.. 3) Prediction Adversary:Because demographic signal can.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 47
   },
   {
-    "id": "fca80eb1-f363-47ca-9d8d-3d38ea79a6ef",
+    "id": "9e944f2e-8c23-45fe-82fc-4e2a0f5ddd55",
     "text": "bypass the router entirely – riding through latent features and. expert outputs instead – FairRoute++ adds a third adversary. directly on the final output,. ˆsY=A Y(ˆy),(11). with. LY. adv= CE(ˆs Y, s).(12). This term stays off in the main FairRoute++ configuration. and is switched on only in the mitigation study (Section V-E),. where the question is whether direct pressure on the output.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 48
   },
   {
-    "id": "e9b00c82-d961-4b80-85b2-7457c891701c",
+    "id": "235f4e3f-9466-4bb9-9a30-53b8ccd21c84",
     "text": "can shrink the disconnect that the first two adversaries leave. behind.. 4) Overall Training Objective:The task loss is standard. cross-entropy,. Ltask= CE(ˆy, y),(13). and routing regularization keeps expert usage balanced,. Lroute.(14). Putting everything together,. L=L task+λrouteLroute. −λZLZ. adv−λRLR. adv−λYLY. adv,(15). whereλ Z,λR,λYweight the three adversarial terms.λ Y=.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 49
   },
   {
-    "id": "b5839d39-0548-4a19-8f76-ef0851d22174",
+    "id": "ff465bbb-3b7b-408a-84d4-1f41a1ce98a5",
     "text": "0throughout the main results; it is switched on only for the. mitigation variant.. This joint objective lets FairRoute++ push demographic. signal down at three points simultaneously – latent, routing,. prediction – without sacrificing much of the task performance. the model was built for.. D. Fairness Disconnect Index. Routing fairness has quietly become the default yardstick.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 50
   },
   {
-    "id": "df8784e3-2356-47e6-838b-df25de5f0e86",
+    "id": "76d5dde4-593b-4ec9-bb08-22dd83e86c79",
     "text": "for sparse-routing architectures, but it only tells half the. story. A router can look statistically clean while the predictor. downstream still encodes the sensitive attribute through latent. features or expert transformations. Judging fairness from the. router alone, in other words, cannot rule this out.. TheFairness Disconnect Index (FDI)is our attempt to close.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 51
   },
   {
-    "id": "962d2691-d4a1-4484-990f-2922a0435291",
+    "id": "5891152a-608b-48d5-8da3-be534e5f3edc",
     "text": "that gap with a single number that ties routing fairness to. prediction leakage.Prediction leakage comes from an external logistic-. regression probe trained to guessSfromˆy. Its AUC, shifted. by the chance baseline, gives a leakage score,. L=AUC leak−0.5,(16). where a largerLmeans more of the sensitive attribute. survives in the prediction.. Routing fairness comes fromI(R;S), normalized against.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 52
   },
   {
-    "id": "6b5435c9-3cc6-4674-a5f7-2a3a22ff60a4",
+    "id": "28703e29-f4c2-4eab-9638-e10d7a4d1cca",
     "text": "how much sensitive information the raw input carries in the. first place,. α=I(R;S). I(X;S) +ε,(17). withεa small constant guarding against division by zero.. FDI combines the two:. FDI= (AUC leak−0.5)\u0012. 1−I(R;S). I(X;S) +ε\u0013. .(18). The first factor is how much demographic signal remains. at the output; the second is how thoroughly routing has. been scrubbed relative to the input.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 53
   },
   {
-    "id": "054edf85-80a8-41a8-aba4-19a94b07fbbb",
+    "id": "aec15494-3241-4bb6-bfe5-e33f085311e0",
     "text": "Multiplying them isolates. exactly the failure mode we care about: leakage that persists. despiterouting looking fair.. A few properties fall out of this construction almost for. free. FDI hits zero whenever leakage is zero, no matter what. routing looks like – there is nothing to disconnect from if there. is no leakage to begin with. If routing itself remains dependent.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 54
   },
   {
-    "id": "cd05e9e9-4b04-452e-9453-4c7fae1fd3e5",
+    "id": "c3b869e0-0e1a-4dfe-8fd6-67e12a9f4424",
     "text": "onS, the attenuation factor shrinks, which stops a model. that never achieved routing fairness from scoring an inflated. disconnect. And the score only climbs when both conditions. line up together: clean-looking routing, leaky prediction. That. is the definition of Fairness Disconnect, encoded directly into. the metric.. We tried simpler alternatives – summing the two terms,.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 55
   },
   {
-    "id": "0ce15363-e162-41b0-b827-9fcfadd66141",
+    "id": "72a8f0d7-78fa-45bc-a6ae-febba38a7740",
     "text": "or averaging them – and rejected both. A sum cannot tell a. routing-unfair model apart from a prediction-leaky one; a ratio. blows up once routing MI gets close to zero; a harmonic mean. over-penalizes small fluctuations near the boundaries. The. multiplicative form avoids all three problems while staying. bounded and easy to read.. Low FDI says routing gains are showing up where they.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 56
   },
   {
-    "id": "f985aa3c-ca53-4476-8d99-222edd265e8a",
+    "id": "5fcbda07-0ea5-49e9-8101-fc8fdf772d46",
     "text": "should – in the prediction. High FDI is a warning sign: the. router looks fine, but that appearance is not being backed up. downstream.. IV. EXPERIMENTALSETUP. This section lays out the datasets, metrics, implementation. choices, and protocol behind the FairRoute++ evaluation.. Every experiment, unless flagged otherwise, uses the same.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 57
   },
   {
-    "id": "d2e1157d-cf8f-4f80-b7a9-8a0034e91483",
+    "id": "c09e984a-6845-4397-947c-2cb7dc7ff1f1",
     "text": "training configuration across datasets so that differences in the. results trace back to the fairness mechanism itself rather than. to per-dataset tuning.. [Page 6]. 6. A. Benchmark Datasets. Six widely used fairness benchmarks anchor the tabular. study, spanning criminal justice, income, credit, health, and. a synthetic setting built for controlled testing..",
     "source": "fairtree-fdi",
     "page": 6,
     "chunk_index": 58
   },
   {
-    "id": "6739129d-71a5-4870-8877-5170a2678954",
+    "id": "ef076c16-8034-4980-905b-326d90999059",
     "text": "•Adultpredicts whether annual income exceeds $50,000. using demographic and employment-related features.. Gender is treated as the sensitive attribute.. •COMPASpredicts criminal recidivism risk from judicial. records. Race is used as the protected attribute.. •German Creditevaluates loan default risk using finan-. cial and demographic variables, with age serving as the. sensitive attribute..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 59
   },
   {
-    "id": "3c6f5eab-dfbd-41d9-b3b5-f6ec553eaba6",
+    "id": "1d8fc162-e678-4736-a23c-feada6a5462c",
     "text": "•Bank Marketingpredicts whether a client subscribes to. a term deposit following a marketing campaign. Age is. considered the protected attribute.. •Pima Indians Diabetespredicts diabetes diagnosis us-. ing clinical measurements. Age is used as the sensitive. attribute.. •Syntheticis a controlled dataset generated with ad-. justable correlation between sensitive attributes and target.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 60
   },
   {
-    "id": "eba4c72e-d726-4883-9b01-9479951e4ffd",
+    "id": "8e87b585-db0a-45be-ba52-21c4c13a2fcb",
     "text": "labels, enabling controlled evaluation of Fairness Discon-. nect under different causal strengths.. Continuous features were standardized against training-split. statistics, categorical variables encoded before training, and. five-fold stratified cross-validation used throughout to keep. variance from a single random split out of the picture.. B. Evaluation Metrics.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 61
   },
   {
-    "id": "ad7e82ca-db29-48a5-9c9a-e5409a406339",
+    "id": "6e037d6b-1ab6-462f-a3d5-71f23790789e",
     "text": "We look at both sides of the coin: how well the model. predicts, and how fair it is at each stage.. Accuracy and F1 cover predictive quality; Demographic. Parity (DP) gap and Equalized Odds (EO) gap cover group. fairness.. For leakage, an external logistic-regression probe attempts. to recover the sensitive attribute from the model’s prediction;. the resulting AUC is our Leakage AUC..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 62
   },
   {
-    "id": "bb58912d-2d92-44c4-8675-6c3900f2a7f9",
+    "id": "08dd51bc-046b-4372-b99a-c8cc5b7b481c",
     "text": "Routing fairness comes from mutual information between. RandS, combined per Section III-D into the proposed FDI.. Unless stated otherwise, every number reported below is a. mean±standard deviation across five folds.. C. Implementation Details. FairRoute++ is implemented in PyTorch and optimized with. Adam, using early stopping on a validation split. Seeds are.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 63
   },
   {
-    "id": "5cda1a57-c797-4b02-a2b9-39af6fd61d0e",
+    "id": "21a70364-7d6d-42d9-9ae6-246557c97494",
     "text": "fixed throughout for reproducibility, and all training runs on a. single NVIDIA GPU.. Hyperparameters are listed in Table I; hardware and soft-. ware configuration follows in Table II.. No dataset-specific tuning was performed beyond what. Table I lists; keeping the configuration fixed across datasets is. what lets us attribute performance differences to the fairness.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 64
   },
   {
-    "id": "7fda9220-443e-49e2-9b2c-df810fe437c3",
+    "id": "1f5a3605-d2fc-452f-91b3-ff9b62063a91",
     "text": "mechanism rather than to extra tuning effort. Every run –. tabular, vision, or text – shares this same seed and evaluation. pipeline, so results across sections stay directly comparable.. Code and configuration files will be released publicly on. acceptance.TABLE I. TRAINING HYPERPARAMETERS USED THROUGHOUT ALLFAIRROUTE++. EXPERIMENTS.. Hyperparameter Value. Latent Dimension 64.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 65
   },
   {
-    "id": "6c959154-6d5a-499f-bb35-b2789de367b0",
+    "id": "ea96c0c6-645f-4c35-a2e2-77a98e068d1b",
     "text": "Number of Experts 4. λadv 1.0. λroute 1.0. λpred 1.0. Learning Rate (Main) 0.001. Learning Rate (Adversary) 0.001. Optimizer Adam. Weight Decay 0.0001. Batch Size 256. Epochs 50. Cross Validation Folds 5. Initial Gumbel Temperature 1.0. Final Gumbel Temperature 0.2. Gradient Clip Norm 1.0. Random Seed 42. TABLE II. EXPERIMENTAL ENVIRONMENT USED FOR ALL EXPERIMENTS.. Configuration Value.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 66
   },
   {
-    "id": "05c2e0d5-2c54-4807-8d8d-da99b5b32f4b",
+    "id": "d8d1e021-2f3e-4ae7-8984-22044afd1672",
     "text": "Programming Language Python 3.11. Framework PyTorch 2.x. GPU NVIDIA Tesla T4. CUDA CUDA Enabled. Operating System Linux. Optimizer Adam. Cross Validation 5-fold Stratified. Random Seed 42. Early Stopping Enabled. Hardware Single GPU Workstation. V. EXPERIMENTALRESULTS. We evaluate FairRoute++ against the protocol above, start-. ing with the core question – does routing fairness track pre-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 67
   },
   {
-    "id": "c343df39-6a11-4c31-841f-9ed524b3b789",
+    "id": "104e642f-9473-4322-a9c0-8fde3ea84053",
     "text": "diction fairness? – via FDI, then moving through information. flow, baseline comparisons, mitigation, robustness, ablations,. and finally generalization beyond tabular data.. A. Fairness Disconnect Evaluation. Table III lays out accuracy, EO gap, and the full. MI/leakage/FDI picture for all six benchmarks.. Routing mutual information falls sharply once fairness regu-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 68
   },
   {
-    "id": "c0df4293-8466-493b-a070-81e141ecf877",
+    "id": "c83cfde5-0c61-4629-8c1a-658c75af2f77",
     "text": "larization kicks in, almost everywhere. Leakage AUC, though,. mostly refuses to follow it down – it sits well above the chance. line even where routing MI is nearly zero, which is exactly. the signature the Fairness Disconnect predicts.. Adult is a clean illustration. Regularizing the router drops. routing MI from 0.0171 to 0.0006 – essentially gone – while.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 69
   },
   {
-    "id": "fbab19b5-0683-410c-bb84-457253c572b0",
+    "id": "a83cd0dd-bbb8-4b09-9039-0da03fc3e4ec",
     "text": "Leakage AUC barely moves, ticking up slightly from 0.6674 to. 0.6711. FDI climbs from 0.0779 to 0.1676 as a result: cleaner. routing, no corresponding gain at the output.. COMPAS tells much the same story: routing MI collapses. toward zero, leakage stays put. German Credit pushes the. effect further still. Routing MI drops substantially under reg-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 70
   },
   {
-    "id": "2821478d-a95a-4f65-93a6-629005ecee43",
+    "id": "a24ae7ef-17ad-4cc5-b18d-c8649bf7dbe5",
     "text": "ularization, yet Leakage AUC holds above 0.78 – among the. [Page 7]. 7. largest disconnect scores we observe anywhere in the tabular. suite.. Taken together, these numbers argue that routing fairness. and prediction fairness are measuring genuinely different. things, not two views of the same underlying property. A. protocol that checks only the router is, at best, half an audit..",
     "source": "fairtree-fdi",
     "page": 7,
     "chunk_index": 71
   },
   {
-    "id": "50829a26-459c-4e3d-b3f8-b2019a345104",
+    "id": "8097812d-bee7-4a18-92c4-1d9f87e4725c",
     "text": "Zooming out across all six rows, the pattern repeats with. remarkably little variation. Adversarial routing does its job on. routing statistics; that job, done well, does not automatically. carry over to the prediction. Several datasets show Leakage. AUC sitting comfortably above chance even where routing. MI is negligible – evidence that routing fairness, taken alone,.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 72
   },
   {
-    "id": "0e0409e9-1574-45a1-832c-91bdce5f4aac",
+    "id": "fae9493c-1b9e-48b9-b3fd-bb34e7fd8898",
     "text": "is not a reliable stand-in for prediction fairness.. B. Information Flow Analysis. Section V-A showsthatrouting fairness and prediction fair-. ness diverge; it does not showhowdemographic information. travels through the model to get there. To trace that path, we. track mutual information at three checkpoints – the raw input,. the encoder’s latent output, and the router’s assignments..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 73
   },
   {
-    "id": "4b9e5abb-ef79-4643-bd3e-760290241e0a",
+    "id": "3d1dcb55-7337-40f1-819f-83835ddcfb7c",
     "text": "Table IV reports these three MI values alongside routing. attenuation, our summary statistic for how much demographic. signal survives the trip from input to router.. Routing regularization consistently pulls routing MI down. across the board. Adult, COMPAS, and Synthetic all clear. 98% attenuation – the router, for practical purposes, has. stopped depending on the sensitive attribute.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 74
   },
   {
-    "id": "eaccd72a-fa9f-46a3-b2be-e39786bd3c7b",
+    "id": "768514dc-7f6a-4c7b-b793-0112d3fe7b00",
     "text": "German Credit. attenuates less, simply because its raw input carries a stronger. demographic signal to begin with.. None of that attenuation shows up as expected in the. leakage numbers from Section V-A. Removing demographic. information from routing, it turns out, does not remove it from. the pipeline as a whole – it just means the information found.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 75
   },
   {
-    "id": "4db045b9-dada-43a9-9317-3b472144432e",
+    "id": "a1d65a2a-5462-400d-90b5-403939f4fcf8",
     "text": "a different route, most likely through the latent representation. and expert outputs that feed the fusion stage.. This is the clearest mechanistic evidence for Fairness Dis-. connect we have: routing can be scrubbed almost completely. while leakage persists, because routing is only one channel. among several that the sensitive attribute can travel through..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 76
   },
   {
-    "id": "272f3fc7-0027-4ab8-a4de-b9d84b989fc2",
+    "id": "c9f25a77-4b70-44e4-b513-6de0580d646b",
     "text": "A fairness audit built around routing statistics alone is, struc-. turally, blind to the other channels.. Four of six datasets – Adult, COMPAS, German, Bank –. clear 96% routing attenuation, meaning demographic informa-. tion is nearly gone from routing by any reasonable threshold.. Leakage AUC does not care: it stays well above chance re-. gardless, and FDI stays positive as a direct consequence.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 77
   },
   {
-    "id": "22fb3d47-d066-42e9-999f-afdd52857a47",
+    "id": "a9dfc8ca-3724-4da0-83a0-587c6734c846",
     "text": "Even. Synthetic and Diabetes, where attenuation is comparatively. weaker, still leak measurably. The upshot across all six is. unambiguous: scrubbing routing decisions is not sufficient on. its own, and any evaluation protocol that treats it as sufficient. is measuring the wrong stage of the pipeline. A sweep over. the Synthetic dataset’s causal-strength knob adds a further. check.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 78
   },
   {
-    "id": "c57c31fc-195f-4e0f-afde-20e0726b4f5b",
+    "id": "c5b087b2-9b30-4e75-b9c4-09083c67b0d2",
     "text": "FDI tracks that knob almost monotonically (Figure 3):. weak causal dependence betweenSandYyields small FDI,. stronger dependence yields larger FDI. That responsiveness. matters – it says the metric is picking up on something real. in the data-generating process, not just noise from a particular. optimization run.. Fig. 3. Robustness of the proposed Fairness Disconnect Index (FDI) under.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 79
   },
   {
-    "id": "bb60e16d-7982-4629-b94a-4228340ba8d5",
+    "id": "84b3c351-e35e-4f9f-bd25-11176f740efd",
     "text": "different levels of causal dependence between the sensitive attribute and the. prediction target. Error bars represent one standard deviation over repeated. experiments. As the causal relationship becomes stronger, the measured FDI. consistently increases, indicating that the proposed metric remains sensitive. to demographic information leakage across different correlation strengths..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 80
   },
   {
-    "id": "87456e7f-11f6-4fde-8e81-be4afa2938da",
+    "id": "55a22a1d-9efe-4577-9b84-37e2cbf4e8c4",
     "text": "At the low end of the sweep, little sensitive information. has any route through the pipeline to begin with, so FDI. stays small almost by construction. As dependence strength-. ens, more of that signal survives inZand inˆy, and the. routing/prediction gap widens visibly.. The net effect is a metric that stays interpretable across very.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 81
   },
   {
-    "id": "d7bef5ba-99d0-4301-b98d-da5ec14e89b7",
+    "id": "c125768c-9016-4d41-ab45-9a042181c0c6",
     "text": "different causal regimes – useful evidence that FDI is tracking. demographic leakage specifically, rather than some artifact of. the training procedure.. C. Statistical Validation of Fairness Disconnect. A pattern across datasets is suggestive; it is not proof. To. rule out sampling noise as the explanation, we run a one-. samplet-test on the per-fold Leakage AUC values against the.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 82
   },
   {
-    "id": "d75d8a30-2f6a-48f6-a862-3042ef2375e6",
+    "id": "9dc4e718-a7c1-4e42-b048-ecf9d25a2346",
     "text": "nullAUC= 0.5, and report Cohen’sdalongside it for effect. size.. Table V lays out the results: the null is rejected everywhere,. withp-values small enough and effect sizes large enough that. chance is not a credible explanation. Prediction-level leakage. holds up even where routing MI has been driven close to zero.. This closes the loop on the disconnect claim statistically:.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 83
   },
   {
-    "id": "8d65f1eb-6669-48a5-8fee-74f61f3bdfc0",
+    "id": "ecfd6464-e296-4b27-a2d5-f59ea3d90f82",
     "text": "fair-looking routing is not accompanied, reliably, by fair. predictions, and that gap is not a fluke of any single dataset.. Every dataset in Table V rejectsH 0at the 5% level, and. the effect sizes are not marginal – they are large by any. conventional reading of Cohen’sd. That combination is what. lets us say the observed leakage is both statistically real and.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 84
   },
   {
-    "id": "0bdd22da-d849-4cb1-bf6b-2fb8e40b2189",
+    "id": "1a3e7d4f-70e8-49c0-b8f4-a782929b127e",
     "text": "practically substantial, not a rounding artifact that happens to. clear a significance threshold.. D. Baseline FDI Evaluation. Is FDI picking up something specific to FairRoute++’s. architecture, or something more general about fairness-aware. learning? To find out, we ran seven conventional models –. Logistic Regression (LR), Random Forest (RF), a Multi-Layer.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 85
   },
   {
-    "id": "62f457f0-dd82-4a07-97da-8a7e53528ecf",
+    "id": "bae9dff5-1cfa-4e38-87fd-da19b7785b7b",
     "text": "Perceptron (MLP), Gradient Boosting (GBDT), XGBoost. [Page 8]. 8. TABLE III. OVERALL PERFORMANCE OFFAIRROUTE++ACROSS ALL BENCHMARK DATASETS. RESULTS ARE REPORTED AS MEAN±STANDARD DEVIATION OVER. FIVE-FOLD CROSS-VALIDATION. INPUTMIDENOTES THE MUTUAL INFORMATION BETWEEN THE INPUT FEATURES AND THE SENSITIVE ATTRIBUTE,. WHILEROUTINGMIMEASURES DEMOGRAPHIC INFORMATION RETAINED IN ROUTING ASSIGNMENTS.",
     "source": "fairtree-fdi",
     "page": 8,
     "chunk_index": 86
   },
   {
-    "id": "1a56a406-b82a-4534-bc48-59ea1c09c2b9",
+    "id": "aed9ec4d-b79e-499c-b024-918f43eee5de",
     "text": "LEAKAGEAUCIS COMPUTED USING AN. EXTERNAL LOGISTIC REGRESSION PROBE TRAINED ON THE FINAL MODEL PREDICTIONS.. Dataset Input MI Latent MI Routing MI Leakage AUC FDI EO Gap Accuracy. Synthetic 0.033±0.018 0.000±0.000 0.007±0.003 0.584±0.043 0.063±0.046 0.057±0.022 0.969±0.010. COMPAS 0.046±0.005 0.019±0.014 0.001±0.002 0.661±0.023 0.156±0.025 0.223±0.040 0.681±0.013.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 87
   },
   {
-    "id": "d2e5272b-cf57-4ad9-aaf4-addbd1487c32",
+    "id": "5d8057de-f687-4432-94a1-e07bec3e29d8",
     "text": "Adult 0.032±0.003 0.032±0.003 0.000±0.000 0.655±0.007 0.154±0.009 0.032±0.018 0.829±0.004. German 0.181±0.070 0.117±0.068 0.006±0.004 0.889±0.066 0.371±0.080 0.239±0.095 0.743±0.014. Bank 0.653±0.001 0.500±0.041 0.002±0.003 0.979±0.009 0.478±0.008 0.030±0.016 0.916±0.003. Diabetes 0.526±0.017 0.506±0.046 0.129±0.025 0.983±0.008 0.364±0.022 0.331±0.072 0.753±0.026. TABLE IV.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 88
   },
   {
-    "id": "f26e9472-74b3-456e-b4e5-a43ea30117e2",
+    "id": "c840fdb9-cf54-44f2-bc93-9547aca17b10",
     "text": "INFORMATION FLOW ACROSS THE PROPOSEDFAIRROUTE++FRAMEWORK. ROUTINGATTENUATION MEASURES THE PERCENTAGE REDUCTION IN. DEMOGRAPHIC INFORMATION FROM THE INPUT REPRESENTATION TO ROUTING ASSIGNMENTS.. Dataset Input MI Latent MI Routing MI Routing Attenuation (%) Leakage AUC FDI. Synthetic 0.0326 0.0000 0.0074 77.4 0.5837 0.0627. COMPAS 0.0463 0.0194 0.0014 97.0 0.6610 0.1564.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 89
   },
   {
-    "id": "af4c1c0d-14e1-4dd4-b1e8-35d09c130893",
+    "id": "fdfd30e5-ba84-43b0-b3dd-261acb9c55d7",
     "text": "Adult 0.0320 0.0317 0.0002 99.3 0.6549 0.1538. German 0.1814 0.1170 0.0063 96.5 0.8889 0.3708. Bank 0.6529 0.4996 0.0020 99.7 0.9790 0.4776. Diabetes 0.5260 0.5061 0.1293 75.4 0.9834 0.3644. TABLE V. STATISTICAL VALIDATION OF PREDICTION LEAKAGE. AONE-SAMPLEt-TEST EVALUATES WHETHER THE OBSERVEDLEAKAGEAUCIS SIGNIFICANTLY. GREATER THAN RANDOM GUESSING(AUC= 0.5).",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 90
   },
   {
-    "id": "7330f5f8-0d79-4236-a3f4-aa0dc41348d8",
+    "id": "fed22f6f-3534-48fd-b698-1253632769cf",
     "text": "COHEN’SdQUANTIFIES EFFECT SIZE,WHILE THE CONFIDENCE INTERVAL IS COMPUTED OVER THE. FIVE CROSS-VALIDATION FOLDS.. Dataset Leakage AUC 95% CIp-value Cohen’sdRejectH 0. Synthetic 0.5837±0.0428 [0.5306, 0.6368] 0.0060 1.956 Yes. COMPAS 0.6610±0.0231 [0.6324, 0.6897]<0.001 6.983 Yes. Adult 0.6549±0.0072 [0.6459, 0.6638]<0.001 21.417 Yes. German 0.8889±0.0663 [0.8066, 0.9713]<0.001 5.863 Yes.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 91
   },
   {
-    "id": "2a3c08b0-1318-4264-b299-5a25b6b561a0",
+    "id": "f0998497-6cb6-4295-b4e1-0fe9133020fb",
     "text": "Bank 0.9790±0.0086 [0.9684, 0.9897]<0.001 55.699 Yes. Diabetes 0.9834±0.0084 [0.9730, 0.9938]<0.001 57.874 Yes. (XGB), LightGBM (LGBM), and Exponentiated Gradient with. Equalized Odds (ExpGrad+EO) – through the identical cross-. validation splits.. None of these models has a router, so routing MI is. not defined for them; FDI collapses to a direct function of.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 92
   },
   {
-    "id": "613ce7e7-6133-48e3-8e0e-4c5a9e0cfbdd",
+    "id": "62982582-b580-4c1e-ad50-e7c4e1675529",
     "text": "prediction leakage in this comparison, using the same probing. setup as everywhere else in the paper.. Table VI reports Leakage AUC, FDI, and a one-samplet-. test against chance (AUC= 0.5) for each model on each. dataset; Wilcoxon signed-rank tests, run in parallel, agreed. with everyt-test call and are omitted here for space.. Leakage, plainly, has nothing special to do with Fair-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 93
   },
   {
-    "id": "0e21fe3c-46ef-4702-98d5-e860624a0fe3",
+    "id": "230c5057-f092-4d90-a8f5-a162bbeeb11a",
     "text": "Route++’s architecture. Linear models, tree ensembles, and. plain neural nets all show positive, statistically significant. FDI under this same protocol – 30 of 35 model-dataset. pairs reject the chance-guessing null outright. ExpGrad+EO. is the interesting exception: it pulls Leakage AUC toward. 0.5 on Bank, German, and COMPAS, and loses significance.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 94
   },
   {
-    "id": "f889ca9c-24c1-4267-ac12-93be31431949",
+    "id": "ca9584c1-0de7-4b37-b275-34baa14f558d",
     "text": "on exactly those three, which is itself a useful sanity check. – the test is not rubber-stamping every model regardless of. what it does. Where ExpGrad+EO does not fully neutralize. leakage, though, the finding stands on its own: fairness-aware. post-processing does not guarantee the sensitive attribute hasactually left the prediction.. Read together, this places Fairness Disconnect well out-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 95
   },
   {
-    "id": "75b7103b-06c0-45ae-8127-fb9a6dc8d4cd",
+    "id": "3a241ffe-8fe9-4e8b-b17b-d9ccc15a0d67",
     "text": "side the sparse-routing box. Hidden leakage turns up across. model families sharing nothing architecturally, which means. conventional fairness metrics – taken alone – miss something. general about learned predictors, not something peculiar to. MoE routing.. E. Mitigation Experiment. Everything so far shows leakage surviving fair-looking. routing.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 96
   },
   {
-    "id": "40b414ca-951f-404f-b8ea-fcbfc32c10f3",
+    "id": "fca59e0b-d8c1-46ce-91d4-a6fb3282daaa",
     "text": "The obvious next question: can a targeted fix actually. shrink it?. We test this with a prediction-level adversarial mitigation. module – an auxiliary adversary attached directly toˆy, trained. to minimize how much ofSit can recover while the model. still tries to keep its accuracy. Where the routing adversary. works upstream, this one goes straight at the residual leakage. that slipped past it..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 97
   },
   {
-    "id": "92fade87-3c29-4329-a275-07f2997294ea",
+    "id": "28ffab9c-c161-4b12-a9ea-719c9d900b75",
     "text": "Table VII sets the original FairRoute++ model against this. mitigation variant on Adult and COMPAS, reporting Leakage. AUC, FDI, EO gap, and accuracy for both. The results. here are, frankly, a little humbling. On Adult, the prediction. adversary nudges FDI and EO gap down slightly, at a small. [Page 9]. 9. TABLE VI.",
     "source": "fairtree-fdi",
     "page": 9,
     "chunk_index": 98
   },
   {
-    "id": "5a35afb6-6cc2-45c2-8aff-50da094bb0c6",
+    "id": "25aa8ad9-e9e1-4692-b978-d067120d19a5",
     "text": "FAIRNESSDISCONNECTINDEX ACROSS CONVENTIONAL MACHINE LEARNING BASELINES,WITH A ONE-SAMPLEt-TEST OFLEAKAGEAUCAGAINST. CHANCE(AUC= 0.5). RESULTS ARE MEAN±STANDARD DEVIATION OVER FIVE-FOLD CROSS-VALIDATION.. Dataset Model Leakage AUC FDIt-testpRejectH 0. COMPASLR 0.681±0.013 0.181±0.013 ¡0.001 Yes. RF 0.625±0.012 0.125±0.012 ¡0.001 Yes. MLP 0.678±0.014 0.178±0.014 ¡0.001 Yes.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 99
   },
   {
-    "id": "69822fa7-af8d-4ef5-bba8-6c34988be200",
+    "id": "52ec72b3-6df3-42dc-a6c3-849826cdb6b8",
     "text": "GBDT 0.672±0.013 0.172±0.013 ¡0.001 Yes. XGB 0.653±0.010 0.153±0.010 ¡0.001 Yes. LGBM 0.660±0.010 0.160±0.010 ¡0.001 Yes. ExpGrad+EO 0.547±0.060 0.047±0.060 0.077 No. AdultLR 0.592±0.003 0.092±0.003 ¡0.001 Yes. RF 0.594±0.006 0.094±0.006 ¡0.001 Yes. MLP 0.610±0.002 0.110±0.002 ¡0.001 Yes. GBDT 0.613±0.002 0.113±0.002 ¡0.001 Yes. XGB 0.607±0.004 0.107±0.004 ¡0.001 Yes.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 100
   },
   {
-    "id": "6cd03a8c-e0a2-4358-b3f7-883123412405",
+    "id": "c34fb130-6b73-4dd6-a484-220ebc4ff7f4",
     "text": "LGBM 0.609±0.003 0.109±0.003 ¡0.001 Yes. ExpGrad+EO 0.526±0.006 0.026±0.006 ¡0.001 Yes. GermanLR 0.633±0.049 0.133±0.049 0.002 Yes. RF 0.658±0.050 0.158±0.050 0.001 Yes. MLP 0.621±0.071 0.121±0.071 0.009 Yes. GBDT 0.650±0.048 0.150±0.048 0.001 Yes. XGB 0.641±0.048 0.141±0.048 0.001 Yes. LGBM 0.632±0.046 0.132±0.046 0.002 Yes. ExpGrad+EO 0.493±0.058 -0.007±0.058 0.595 No.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 101
   },
   {
-    "id": "9d9f4e44-7e89-4a44-b24b-d518d3b44614",
+    "id": "193d54ac-8f7b-4a15-a192-4302c84bc795",
     "text": "BankLR 0.507±0.019 0.007±0.019 0.230 No. RF 0.507±0.005 0.007±0.005 0.011 Yes. MLP 0.526±0.004 0.026±0.004 ¡0.001 Yes. GBDT 0.517±0.009 0.017±0.009 0.007 Yes. XGB 0.513±0.010 0.013±0.010 0.020 Yes. LGBM 0.514±0.011 0.014±0.011 0.026 Yes. ExpGrad+EO 0.503±0.005 0.003±0.005 0.129 No. DiabetesLR 0.727±0.071 0.227±0.071 0.001 Yes. RF 0.747±0.042 0.247±0.042 ¡0.001 Yes.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 102
   },
   {
-    "id": "1a7fa123-9dd0-4140-81ea-23a7c00778f0",
+    "id": "f3da18ea-63b7-4ead-a414-c7d01a557472",
     "text": "MLP 0.761±0.053 0.261±0.053 ¡0.001 Yes. GBDT 0.712±0.050 0.212±0.050 ¡0.001 Yes. XGB 0.687±0.048 0.187±0.048 0.001 Yes. LGBM 0.693±0.047 0.193±0.047 ¡0.001 Yes. ExpGrad+EO 0.480±0.055 -0.020±0.055 0.765 No. Fig. 4. Average Fairness Disconnect Index (FDI) across conventional machine. learning baselines. Higher values indicate stronger residual demographic. information within model predictions..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 103
   },
   {
-    "id": "2579fac2-c077-49f1-a55a-d919b19886d3",
+    "id": "13f22c9f-01e8-49f1-9f9b-6e9812b3c360",
     "text": "accuracy cost – a modest win. On COMPAS, Equalized Odds. improves more visibly, but at a bigger accuracy cost, and FDI. barely budges. One adversary bolted onto one stage is not,. apparently, a reliable fix.. The likely reading: residual leakage does not live in one. place, so knocking on the prediction door alone will not always. close it. Fairness Disconnect looks like a distributed problem,.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 104
   },
   {
-    "id": "b2d768e6-836d-4a78-9b3e-6b96cb865e08",
+    "id": "77a4f22e-93bf-4ffe-a859-e9d393fa0b59",
     "text": "spread across the pipeline, which means single-stage patchesTABLE VII. MITIGATION EXPERIMENT COMPARING THE ORIGINALFAIRROUTE++. MODEL WITH AN ADDITIONAL PREDICTION-LEVEL ADVERSARIAL. MITIGATION MODULE. RESULTS ARE REPORTED AS MEAN±STANDARD. DEVIATION OVER FIVE-FOLD CROSS-VALIDATION.. Dataset Condition Leakage AUC FDI EO Gap Accuracy. Adult Baseline 0.654±0.005 0.154±0.005 0.042±0.032 0.829±0.004.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 105
   },
   {
-    "id": "32246966-9eec-4656-b09c-fc06948ec790",
+    "id": "22dff346-c8c0-493b-844f-d744d75a3e65",
     "text": "Mitigation (+A Y) 0.653±0.010 0.153±0.010 0.024±0.019 0.825±0.003. COMPAS Baseline 0.657±0.017 0.155±0.018 0.231±0.044 0.679±0.021. Mitigation (+A Y) 0.663±0.018 0.157±0.025 0.182±0.052 0.647±0.019. – whether at the router or at the output – are unlikely to solve. it consistently.. FDI earns its keep here too, beyond just flagging the. problem: it gives us a number to check whether a proposed.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 106
   },
   {
-    "id": "484ed7b8-520e-4cf8-abbd-5987d48d728d",
+    "id": "5b7500fe-9bad-4819-82a3-790c332e6e0e",
     "text": "fix actually worked, rather than trusting that it should have.. [Page 10]. 10. Fig. 5. Comparison of the baseline FairRoute++ model and the prediction-. level mitigation strategy. While Equalized Odds improves on both datasets, re-. ductions in the proposed Fairness Disconnect Index remain modest, indicating. that prediction leakage persists despite additional adversarial regularization.. F.",
     "source": "fairtree-fdi",
     "page": 10,
     "chunk_index": 107
   },
   {
-    "id": "730f67c2-aa9e-44c9-a88a-2de987598348",
+    "id": "ce3514f8-004e-4f14-a70e-0c183a580bd8",
     "text": "Mutual Information Robustness Analysis. MI estimators are notoriously estimator-dependent, espe-. cially in high dimensions – classifier-based and neural esti-. mators in particular can run optimistic on complex feature. spaces. To make sure Fairness Disconnect is not an artifact of. our specific MI estimator, we cross-check the classifier-based.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 108
   },
   {
-    "id": "0947f34c-f150-4991-a326-c83cb81ef26b",
+    "id": "a174d377-2981-4cfc-a6d5-7289e0f30119",
     "text": "estimator used elsewhere in this paper against a non-parametric. k-nearest-neighbor (kNN) estimator.. Bank and Diabetes get the closest look here, since they. show the largest leakage in the tabular suite. For each, we. estimate MI independently at the input, latent, and routing. stages under both estimators, alongside Leakage AUC as an. estimator-agnostic anchor (it comes from an external probe,.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 109
   },
   {
-    "id": "4b48af83-1ca2-446a-9562-c8bb7ff149a8",
+    "id": "cc48b7e3-9550-48f9-ae3e-13dd05afb698",
     "text": "not from MI estimation at all).. Table VIII lays the comparison out.. At the input and routing stages, the two estimators agree. almost exactly on both datasets. At the latent stage, Diabetes. still agrees closely, but Bank’s two estimates diverge by a fac-. tor of twenty – a strong hint that the classifier-based estimator. is running optimistic in that particular high-dimensional latent. space..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 110
   },
   {
-    "id": "b4518fe5-6641-4934-8adc-244276a35f92",
+    "id": "6475e5fd-e70d-4ef6-90dc-dc71ce35aa1d",
     "text": "Leakage AUC, notably, does not budge across this whole. comparison, because it never depended on MI estimation to. begin with. That gives us a way to separate the two possible. worries: is the disconnect real, or is it an estimator artifact?. Given that leakage stays high under an entirely independent. measurement, the answer leans firmly toward real. MI esti-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 111
   },
   {
-    "id": "f9da7c2e-53b8-4e1e-82d3-879a72df9a14",
+    "id": "3c43a3ea-0541-45f6-aa34-a3e25705532c",
     "text": "mates can wobble; the leakage they are meant to explain does. not.. G. Component Ablation Study. Which piece of FairRoute++ is actually doing the work?. To answer that on Adult, we compare four variants: the full. model; the model with the routing adversary removed; the. model with the latent adversary removed; and a vanilla sparse. MoE with neither adversary, everything else held fixed..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 112
   },
   {
-    "id": "2411e3dc-3bc4-47bb-a2dd-553bbe24a8a9",
+    "id": "48a9fb10-3fbf-4b3b-b117-2d0cdea23585",
     "text": "We score all four on accuracy, F1, DP gap, EO gap, Leakage. AUC, and FDI.. Both adversaries pull their weight, but not equally. Dropping. only the routing adversary barely moves Leakage AUC and. keeps accuracy where it was – routing debiasing on its own,. in other words, is not carrying the disconnect fix.Drop the latent adversary instead, and the picture shifts.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 113
   },
   {
-    "id": "32926312-1e7e-4c11-9a10-7411005e911d",
+    "id": "05d77add-4d17-4259-9136-b9b844ac3da8",
     "text": "more: Leakage AUC climbs from about 0.656 to about 0.673,. with FDI following it up. Latent features, this suggests, are a. real conduit for demographic signal on their way to the output. – arguably the more important of the two channels here.. Vanilla MoE, with both adversaries stripped out, leaks the. most and shows the widest fairness gaps, all while matching.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 114
   },
   {
-    "id": "277e8ee5-fde3-4a62-a8fc-7b9295ec3fcb",
+    "id": "13a4b193-f774-4619-adc0-3a4e86d63f2f",
     "text": "the full model’s accuracy almost exactly. That last part matters:. it rules out the possibility that FairRoute++’s leakage reduction. is just a side effect of worse predictive performance.. So the two adversaries are complements, not substitutes –. one handles routing, the other handles the latent pathway, and. neither alone gets you the full reduction that combining them.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 115
   },
   {
-    "id": "8c4c007b-8f00-46d7-80c9-742afbd12944",
+    "id": "c96d8652-cf4d-4378-949e-cd300e3e0a7f",
     "text": "does, without meaningfully touching accuracy.. H. Correlation Analysis. If routing fairness were a good proxy for prediction fairness,. the two should move together across runs. We test that directly. by pooling cross-validation folds from every tabular bench-. mark and computing both Pearson and Spearman correlations. between routing MI and Leakage AUC..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 116
   },
   {
-    "id": "d145d8f5-10c2-446d-ba24-697b80fec8b7",
+    "id": "0b9cb5dd-1827-4781-89c7-bda09f9b4e26",
     "text": "The Pearson coefficient here,r= 0.319(p= 0.120), is. weak and not significant – routing MI, on its own, explains. only a small slice of the variation in downstream leakage.. Spearman comes in a bit higher (ρ= 0.430,p= 0.032),. pointing to a modest monotonic trend, but nowhere near strong. enough to support treating routing fairness as a stand-in for. prediction fairness..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 117
   },
   {
-    "id": "017e6f73-1e40-4138-955e-60cba851f233",
+    "id": "c7d79020-3d6d-478a-bcf6-a8a39e0cd901",
     "text": "We deliberately stop short of reporting a correlation between. FDI and Leakage AUC as further evidence of the disconnect.. FDI is defined as(AUC leak−0.5)·(1−α)– Leakage AUC. is one of its two multiplicative factors by construction – so. any correlation between the two is mathematically guaran-. teed rather than empirically discovered, and reporting it as. independent support would be circular.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 118
   },
   {
-    "id": "7e27ed8d-45cb-4399-9b74-f789e8ac0cb2",
+    "id": "69aeb312-c4c4-4335-bab1-9c481ea68935",
     "text": "The correlation that. actually tests the hypothesis is the one above: routing MI. against Leakage AUC, two quantities defined independently. of each other. Its weakness is the evidence, not a footnote to. it.. Read this way, the correlation analysis lines up with every-. thing preceding it: routing-level fairness and prediction-level.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 119
   },
   {
-    "id": "1c180a1d-78d0-4046-864f-3b1641d552bd",
+    "id": "4d4b9ec5-26fb-4aca-84f5-2876c4c242f9",
     "text": "fairness are only loosely coupled at best, which is exactly why. evaluating one cannot substitute for evaluating the other.. I. Training Stability. Fairness numbers that swing wildly with the random seed. are not much of a foundation to build on. To check that. FairRoute++’s do not, we retrain it five times on Adult with. five different seeds, everything else held identical, and look at.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 120
   },
   {
-    "id": "cb03c149-0a28-4c29-b57c-95cdd152791d",
+    "id": "eab78bc3-0cb9-48af-ad67-770567183d42",
     "text": "how much the results move.. Nothing here moves much. Accuracy hovers around 0.831. across all five seeds, F1 shows similarly tight variation, and. FDI settles near 0.155 with a small standard deviation to. match.. DP and EO gaps stay tight too, which says the adversarial. optimization is converging to roughly the same solution re-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 121
   },
   {
-    "id": "97f2e2fd-b282-4a9b-9e75-5b9af3225cf9",
+    "id": "bea1c981-d25a-4c48-9765-30001677fdb0",
     "text": "gardless of initialization rather than landing in different basins. [Page 11]. 11. TABLE VIII. ROBUSTNESS ANALYSIS OF MUTUAL INFORMATION ESTIMATION USING CLASSIFIER-BASEDMIAND KNN MIESTIMATORS. LEAKAGEAUCIS. ESTIMATOR-INDEPENDENT AND THEREFORE SERVES AS AN EXTERNAL VALIDATION OF PREDICTION LEAKAGE.. Dataset Stage Classifier MI kNN MI Ratio Leakage AUC. Bank Input (X) 0.6522 0.6524 1.00 0.9521.",
     "source": "fairtree-fdi",
     "page": 11,
     "chunk_index": 122
   },
   {
-    "id": "d810ed21-2184-4e9e-a961-9bcd4a4c71e0",
+    "id": "4e9ac451-76a6-4586-95af-d8eb27b74f2f",
     "text": "Latent (Z) 0.4010 0.0199 20.11 0.9521. Routing (R) 0.0000 0.0000 1.00 0.9521. Diabetes Input (X) 0.5251 0.5216 1.01 0.9765. Latent (Z) 0.4689 0.4317 1.09 0.9765. Routing (R) 0.0412 0.0412 1.00 0.9765. TABLE IX. COMPONENT ABLATION STUDY ON THEADULT DATASET. RESULTS ARE REPORTED AS MEAN±STANDARD DEVIATION OVER FIVE-FOLD. CROSS-VALIDATION.. accuracy f1 dp gap eo gap leakage auc fdi. Variant.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 123
   },
   {
-    "id": "c7114760-e46b-49d3-a919-a5efeeb5ae77",
+    "id": "d0a5d16b-d4f8-4e0c-bc78-f5587e25c6c1",
     "text": "Full FairRoute++ 0.828 ± 0.004 0.556 ± 0.015 0.086 ± 0.008 0.044 ± 0.022 0.656 ± 0.004 0.156 ± 0.003. w/o Routing Adversary 0.828 ± 0.005 0.553 ± 0.023 0.086 ± 0.012 0.041 ± 0.022 0.656 ± 0.009 0.151 ± 0.011. w/o Latent Adversary 0.830 ± 0.005 0.559 ± 0.022 0.091 ± 0.012 0.047 ± 0.037 0.673 ± 0.006 0.172 ± 0.005.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 124
   },
   {
-    "id": "5b012fbc-de00-4803-bf1e-5d77ef534972",
+    "id": "4c8daca2-36ea-4284-89ff-8c9deb5139f9",
     "text": "w/o Both (Vanilla MoE) 0.830 ± 0.004 0.562 ± 0.019 0.093 ± 0.011 0.047 ± 0.028 0.672 ± 0.005 0.161 ± 0.022. TABLE X. CORRELATION BETWEEN ROUTING MUTUAL INFORMATION AND. LEAKAGEAUC,POOLED ACROSS ALL TABULAR BENCHMARK FOLDS.. Pair Statistic Value (p-value). Routing MI vs. Leakage AUC Pearsonr0.319 (0.120). Spearmanρ0.430 (0.032). TABLE XI. TRAINING STABILITY OFFAIRROUTE++OVER FIVE INDEPENDENT.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 125
   },
   {
-    "id": "0047e96b-d08e-4985-97a0-069886584b55",
+    "id": "45ab3485-4d5f-444a-a792-ee3143c66414",
     "text": "RANDOM SEEDS ON THEADULT DATASET. RESULTS ARE REPORTED AS. MEAN±STANDARD DEVIATION TOGETHER WITH THE CORRESPONDING. 95%CONFIDENCE INTERVALS.. Mean ± Std (5 seeds) 95% CI. Dataset Metric. Adult accuracy 0.8309 ± 0.0035 [0.8265, 0.8352]. f1 0.5578 ± 0.0109 [0.5443, 0.5713]. dpgap 0.0897 ± 0.0033 [0.0856, 0.0939]. eogap 0.0497 ± 0.0147 [0.0314, 0.0679]. leakage auc 0.6548 ± 0.0061 [0.6473, 0.6624].",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 126
   },
   {
-    "id": "db3c0756-92d5-4fc0-bef2-d8b104f35a1b",
+    "id": "c5664e57-330c-456b-9479-02dcf1be666c",
     "text": "fdi 0.1548 ± 0.0061 [0.1472, 0.1624]. each time. Leakage AUC, in particular, barely shifts across. runs – so the leakage we keep reporting is not a quirk of one. lucky (or unlucky) seed.. Put simply: FairRoute++ is not fragile to its random ini-. tialization, and the fairness story it tells is one you would get. again on a different run.. J. Computational Complexity Analysis.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 127
   },
   {
-    "id": "d6384975-f498-40a5-86f4-4fe948ce26fc",
+    "id": "90737f15-a01c-41ec-9bea-523e7bed9d45",
     "text": "A fairness method nobody can afford to run is not much of. a method. So beyond accuracy and fairness, we also profile. FairRoute++’s footprint against the classical baselines – pa-. rameter count, training time, inference latency, GPU memory. – all under the same setup described in Section IV .At roughly 22k trainable parameters, FairRoute++ is far.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 128
   },
   {
-    "id": "6645b584-0348-44b2-aecb-3c5917a78e21",
+    "id": "720899e9-eabb-4bce-a20b-3ac641fac9dc",
     "text": "smaller than most deep architectures, and it still delivers. competitive accuracy alongside its fairness machinery. A full. training run on Adult takes about 55 seconds – the extra cost. of optimizing two adversarial objectives on top of the task. loss.. That cost stays entirely on the training side. Inference. runs at about 0.001 ms per sample, in the same ballpark as.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 129
   },
   {
-    "id": "4c86e1e7-24dc-4c2e-8d1d-7fc6350d2ead",
+    "id": "98cc637b-79f3-4945-b70e-f8ad0b29a22a",
     "text": "lightweight neural baselines and noticeably faster than the. ensemble methods in the comparison, since the adversarial. branches are training-only scaffolding that gets discarded. before deployment.. Memory tells a similar story: roughly 20 MB for both. training and inference, a modest footprint given how much. richer the fairness diagnostics are compared to routing-only. evaluation..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 130
   },
   {
-    "id": "99c22d7c-a1be-419a-9ff2-f8ecfaf1a754",
+    "id": "00f9335f-26a0-4297-86cd-3603c97f24d1",
     "text": "Put plainly, FairRoute++’s overhead is real but small, and. the fairness insight it buys – catching a failure mode routing-. only evaluation would miss entirely – looks like a reasonable. trade for that cost.. K. Generalization Beyond Tabular Data. Everything up to this point runs on tabular benchmarks. and a comparatively shallow MoE. A fair question follows.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 131
   },
   {
-    "id": "59ddbf0c-726a-4942-a87d-cb9ea51c03c1",
+    "id": "5cc6593b-6d90-488f-b667-f7f2f54247e6",
     "text": "immediately: is Fairness Disconnect a property of sparse. routing in general, or an artifact of that specific testbed?. We push on this directly, repeating the core protocol on two. vision datasets and one text-classification benchmark, under a. genuinely different backbone and architecture in each case.. 1) Vision Domain: CelebA and FairFace:CelebA [24] and.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 132
   },
   {
-    "id": "4c84067a-5017-4f1b-86a0-a21c6fb85990",
+    "id": "0fc3ad91-9470-4374-890e-7ed150b9ba4b",
     "text": "FairFace [25] replace the tabular encoder with a convolutional. backbone feeding a conditional sparse-MoE image classifier. at64×64resolution. Unless noted, expert count (K=3) and. backbone size (“small”) match the tabular default; sweeps. over both appear further below. We compare four variants –. [Page 12]. 12. TABLE XII.",
     "source": "fairtree-fdi",
     "page": 12,
     "chunk_index": 133
   },
   {
-    "id": "2b5b4862-0b48-40f4-bf00-83419c7523fe",
+    "id": "ef9fb99a-cac8-456f-b740-28081c42f841",
     "text": "COMPUTATIONAL COMPLEXITY COMPARISON BETWEENFAIRROUTE++AND CONVENTIONAL MACHINE LEARNING BASELINES. TRAINING TIME. CORRESPONDS TO ONE COMPLETE TRAINING RUN,WHILE INFERENCE LATENCY IS REPORTED PER SAMPLE.. nparams train time s infer time mspersample gpu mem train mb gpu mem infer mb. Model. FairRoute++ 22,332 54.767 0.0010 20.3 20.2. LR 6 0.030 0.0000 N/A (CPU model) N/A (CPU model).",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 134
   },
   {
-    "id": "8a000e78-e082-42bc-967d-c526c913ad79",
+    "id": "df09c61e-7cc2-48e9-9e45-a4ba88af9df5",
     "text": "RF N/A 4.259 0.0164 N/A (CPU model) N/A (CPU model). MLP 9,217 14.557 0.0012 N/A (CPU model) N/A (CPU model). GBDT N/A 4.559 0.0013 N/A (CPU model) N/A (CPU model). XGB N/A 0.239 0.0018 N/A (CPU model) N/A (CPU model). LGBM N/A 0.382 0.0066 N/A (CPU model) N/A (CPU model). ExpGrad+EO N/A 1.239 0.0004 N/A (CPU model) N/A (CPU model). Vanilla MoE, routing-regularized MoE (RoutingReg), a dual.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 135
   },
   {
-    "id": "7d24470e-0df0-4512-9524-756f42bf2c53",
+    "id": "eea8e42a-3054-452b-b150-09256b4a1f06",
     "text": "adversarial baseline with adversaries on the latent and routing. stages (DualAdvMoE), and the full FairRoute++ – across both. datasets.. RoutingReg is the case worth staring at. It regularizes the. router and nothing else, and it works – routing MI falls to. 0.08–0.13 on both datasets – yet Leakage AUC barely moves. off the Vanilla-MoE baseline, sitting at 0.996–0.998 regardless..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 136
   },
   {
-    "id": "e5be300c-02a0-4758-89e9-eb89d8b10a76",
+    "id": "837f7b13-05aa-4936-bee5-d04304527825",
     "text": "A router that looks nearly independent of the sensitive attribute. sits in front of a prediction that remains almost perfectly. informative about it. FairRoute++, which layers latent and. prediction-stage regularization on top of routing regularization,. is the only variant that pushes DP gap near zerowhile. alsotrimming Leakage AUC somewhat – though even there,.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 137
   },
   {
-    "id": "c9d42744-aa51-4483-81f4-f7fbef4a2430",
+    "id": "2dcef229-565a-4ef8-8b19-dcfdc0096f02",
     "text": "leakage stays at roughly 0.99, nowhere close to chance. None. of this reads as a tabular quirk: the same disconnect shows. up under a convolutional backbone on real face images, at. accuracy costs consistent with the fairness–utility trade-off. already visible in the ExpGrad+EO rows of Table VI.. Sweeping expert count (K∈ {2,3,4}) and backbone size.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 138
   },
   {
-    "id": "0a608690-dc01-4edd-b3da-5bb942540396",
+    "id": "bea055d7-131d-4e39-be69-ff429de9d1b4",
     "text": "(small/medium/large) on FairFace adds a capacity dimension. to this picture. Backbone capacity helps: routing attenuation. climbs from 27% (small) to 82% (medium) to 76% (large),. and Leakage AUC edges down correspondingly, from 0.990. to 0.936 to 0.915. It never approaches chance, though, at any. capacity we tried. Expert count shows no clean monotonic. trend across the same range.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 139
   },
   {
-    "id": "5299f576-2805-435d-bb7c-a56e7683133c",
+    "id": "8b9eded3-7fcf-4973-8baf-df90365e70bc",
     "text": "Bigger models attenuate the. disconnect; none of them eliminate it.. A component ablation on FairFace – full FairRoute++,. minus VIB compression, minus routing regularization, minus. the adversarial terms, and a fully vanilla MoE – turns up. one especially sharp instance of the phenomenon. Removing. the adversarial objective restores strong routing attenuation.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 140
   },
   {
-    "id": "96abefaf-1137-408e-8066-a0b08a5fe67e",
+    "id": "ccc98abe-7666-4f6a-ae20-0fbba8db2aab",
     "text": "(routing MI falls to 0.137) whileworseningboth Leakage. AUC (0.997) and the group-fairness gaps relative to the full. model. Low routing MI, here, coincides with the single worst. prediction-level fairness of any variant tested – about as. direct a counter-example to the router-suffices assumption as. this study produces. (Because this variant retains the routing.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 141
   },
   {
-    "id": "0af4f7c3-abc5-4e43-9ce4-a4fe58b9fee4",
+    "id": "ae3ebc64-1192-4246-a82d-62e8039c460e",
     "text": "regularizer while dropping only the adversarial terms, its high. attenuation is expected rather than anomalous; we flag the. naming here for clarity.)Finally, pooling routing MI against Leakage AUC and. against the group-fairness gaps across all FairFace runs gives. Pearsonr= 0.058(p= 0.807) for routing MI vs. Leakage. AUC, andr= 0.182/0.178(p≈0.44–0.45) against DP and.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 142
   },
   {
-    "id": "52b96862-88a4-45e8-84dd-085e2b0dbcbc",
+    "id": "69c64d5b-3e24-442a-bbc8-d564c6a77f19",
     "text": "EO gap respectively – no significant linear relationship in. either case, across 20 runs spanning four model families. As. in Section V-I, we do not report a correlation between routing. MI and FDI itself as separate evidence, since that relationship. follows algebraically from the FDI definition rather than from. anything empirical. The routing-MI-vs-Leakage-AUC result.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 143
   },
   {
-    "id": "832c79b8-214f-4b3a-b6f6-11a4f270b533",
+    "id": "272eefd0-e660-40e6-a1a9-a6ca1557f471",
     "text": "is, if anything, the cleanest single number in this whole. generalization study: a router pushed to near-zero demographic. dependence carries essentially no predictive power over down-. stream leakage.. 2) Language Domain: Text Classification:To check gen-. eralization along a third axis – modality rather than ca-. pacity – we repeat the same four-model comparison on a.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 144
   },
   {
-    "id": "0b1b4a31-e69a-4eec-8540-812a73f6cad1",
+    "id": "40e360df-3ae0-4978-bc6e-cf2c2bbbea3c",
     "text": "text-classification benchmark with a demographic sensitive. attribute, using a transformer-encoder backbone in place of. both the tabular and convolutional encoders used elsewhere.. This domain behaves differently from the first two in a way. that is worth naming rather than glossing over. Input mutual. information here sits at roughly 0.04–0.05 nats – an order.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 145
   },
   {
-    "id": "b3d720aa-159e-4b6f-aff5-2d0b6de1add6",
+    "id": "4959fce4-57cc-4f0d-a102-a8dc29fa0eb0",
     "text": "of magnitude below what we see in vision or tabular data –. so the sensitive attribute is only weakly encoded in the raw. input to begin with. Routing attenuation, correspondingly, is. already high (96–98%) even for Vanilla MoE, with no fairness. intervention applied at all; that is the opposite of what tabular. and vision data show, where an unregularized router routinely.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 146
   },
   {
-    "id": "195d4d30-8948-4422-a675-330482717406",
+    "id": "1094d5d9-2b31-4925-9fb4-7ee1120c9339",
     "text": "tracks the sensitive attribute closely.. Leakage AUC sits much closer to chance here too, in the. 0.55–0.59 range rather than 0.95–0.99. A one-samplet-test. againstAUC= 0.5still rejects the null for three of the four. models – VanillaMoE (p= 0.038), RoutingReg (p= 0.019),. and FairRoutePP (p= 0.019) – but DualAdvMoE falls just. short of significance (p= 0.080), and we report that honestly.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 147
   },
   {
-    "id": "ae3631b1-a95f-4fbd-bca2-b5ba1607577f",
+    "id": "6d2a43b6-fd64-4e83-9c3d-fb12e746b006",
     "text": "rather than folding it into the pattern.. Read narrowly, this domain does not overturn anything:. even where routing already looks close to independent ofS, a. small but statistically detectable amount of leakage remains for. most models, and FDI scales down with the weaker underlying. signal rather than reporting a false alarm. Read more broadly,. [Page 13]. 13. TABLE XIII.",
     "source": "fairtree-fdi",
     "page": 13,
     "chunk_index": 148
   },
   {
-    "id": "85979356-60e4-4ad6-b3c1-1ae5b1387d69",
+    "id": "7a970281-5bc1-49d8-b48f-374fec7de775",
     "text": "VISION-DOMAIN MODEL COMPARISON ONCELEBAANDFAIRFACE(5-FOLDCV,MEAN±STD).. Dataset Model Accuracy Routing MI Leakage AUC FDI DP Gap. FairFaceVanillaMoE 0.569±0.024 0.554±0.014 0.996±0.001 0.069±0.011 0.246±0.056. DualAdvMoE 0.570±0.030 0.562±0.020 0.996±0.001 0.063±0.012 0.214±0.266. RoutingReg 0.581±0.022 0.131±0.128 0.996±0.001 0.395±0.100 0.247±0.139.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 149
   },
   {
-    "id": "297e6a3e-de44-43d6-b83f-bc7893a2be76",
+    "id": "03075760-dbd3-45b1-a61c-a5b019c9c212",
     "text": "FairRoutePP0.380±0.0960.467±0.072 0.990±0.0070.131±0.054 0.002±0.004. CelebAVanillaMoE 0.656±0.014 0.565±0.032 0.998±0.000 0.067±0.024 0.332±0.092. DualAdvMoE 0.623±0.034 0.314±0.251 0.998±0.002 0.258±0.191 0.256±0.301. RoutingReg 0.678±0.007 0.081±0.080 0.998±0.001 0.436±0.061 0.337±0.084. FairRoutePP0.440±0.1070.482±0.138 0.990±0.0140.127±0.095 0.000±0.000. TABLE XIV.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 150
   },
   {
-    "id": "e2ea2c15-e9c0-408f-a190-362146389d64",
+    "id": "8c85933a-d87e-4934-bf9e-c8bee29ce205",
     "text": "LANGUAGE-DOMAIN MODEL COMPARISON(5-FOLDCV,MEAN±STD,. MUTUAL INFORMATION IN NATS).. Model Routing MI Leakage AUC FDI. VanillaMoE 0.0015±0.0010 0.564±0.042 0.062±0.041. RoutingReg 0.0015±0.0015 0.577±0.041 0.074±0.040. DualAdvMoE 0.0010±0.0008 0.556±0.048 0.055±0.048. FairRoutePP 0.0007±0.0005 0.594±0.049 0.093±0.049. it is a useful check on the metric itself – FDI tracks the actual.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 151
   },
   {
-    "id": "d2f2544c-26cc-4316-aa75-eee9b9d16774",
+    "id": "20a5ec32-56bc-479b-9131-1b31bf7a69ac",
     "text": "strength of demographic signal available in a domain instead. of returning a flat, domain-blind number, which is what we. would want from a diagnostic rather than a fixed penalty.. Across all three domains together – tabular, vision, text – the. qualitative claim holds up: routing-level independence from. a sensitive attribute is not a reliable predictor of prediction-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 152
   },
   {
-    "id": "8b90307b-a4df-4703-ae7a-5c374780e678",
+    "id": "9cfac42a-13d0-45a2-9fa9-5667596bb469",
     "text": "level fairness, whether the underlying leakage is large (vision,. most tabular sets) or comparatively small (language, in this. instance).. VI. DISCUSSION. Strip away the tables, and the finding is not complicated:. routing fairness and prediction fairness are different properties,. however often the literature treats them as one. Routing mutual.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 153
   },
   {
-    "id": "8df39192-9e40-4705-8a3b-f8dacf151e03",
+    "id": "565652c8-8037-40a6-84bc-f1a4ac92b80c",
     "text": "information drops sharply under regularization in every dataset. and every modality we tried; demographic information in the. final prediction, more often than not, does not follow it down.. FDI exists to catch precisely that gap, rather than settling for. either half of the picture on its own.. The mechanism is not mysterious once you look for it..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 154
   },
   {
-    "id": "2f2c68a0-a1c5-499b-b56b-a7f250a4791e",
+    "id": "a665ed44-8b2b-4b75-863f-476a0a739c28",
     "text": "Routing is a single stop on a longer route, not the destination.. An adversary can scrub the router thoroughly while upstream. latent features – never directly targeted – keep carrying signal. that resurfaces at the prediction layer. A router with near-zero. mutual information and a leaky output are not, it turns out,. mutually exclusive..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 155
   },
   {
-    "id": "53381e76-19f1-4902-a889-a9f375191651",
+    "id": "16d8267a-4c3d-4043-a806-4fc65b6c903e",
     "text": "The information-flow numbers back this reading up directly.. Attenuation clears 95% on several tabular datasets and even. higher on some vision configurations – the router really has. been cleaned. Leakage does not care. It persists regardless,. which is hard to explain unless more than one channel carries. demographic information through the network; routing is.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 156
   },
   {
-    "id": "14c133f3-cb32-4b8b-a2e1-7006dd62ad99",
+    "id": "f9e392ff-3920-4a86-9233-fa3088ba1648",
     "text": "evidently not the only door.Nor is this specific to FairRoute++’s architecture. Plain. logistic regression, tree ensembles, ordinary neural nets – all. of them leak in a statistically detectable way even when they. clear standard fairness checks. That cross-model consistency. is a useful sanity check in its own right: FDI is picking up. something general about how fairness-aware models behave,.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 157
   },
   {
-    "id": "154da28d-42f7-48c8-809a-be5f5762e202",
+    "id": "e96269d9-3f4c-4601-8bef-49e5ea15e6a5",
     "text": "not an idiosyncrasy of our particular router design.. Generalizing across modalities strengthens this reading. rather than complicating it. A convolutional MoE on face. images shows the same qualitative gap as the tabular models,. at a larger scale of leakage; a transformer-based text classifier. shows a smaller, weaker version of the same gap, exactly.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 158
   },
   {
-    "id": "743af834-d36e-4022-a117-a1f9e9159c64",
+    "id": "e7660346-ab55-418d-bbb7-e820893f2ac9",
     "text": "proportional to how much demographic signal the raw text. carries in the first place. That domain-sensitivity is arguably. the strongest evidence FDI is measuring something real – a. metric that inflated equally regardless of underlying signal. strength would be far less trustworthy than one that scales. with it.. The mitigation experiment is a slightly humbling coda..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 159
   },
   {
-    "id": "546dbf7f-fbba-46f1-b358-3e47183e931c",
+    "id": "0e105633-2dbf-40f4-adb8-fdef5695df19",
     "text": "A prediction-level adversary helps Equalized Odds on some. datasets but leaves FDI mostly where it was. One intervention,. at one stage, is not enough on its own – closing the disconnect. for good likely means constraining latent space, router, and. prediction head together, not picking a favorite and hoping.. For anyone building fairness-aware routing methods going.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 160
   },
   {
-    "id": "a1c0314d-69e8-4879-a9e9-1bf4ed679d2a",
+    "id": "3c748f6b-87aa-430d-8525-71df436dc3f2",
     "text": "forward, the practical upshot is straightforward: reporting. routing statistics alone is an incomplete audit. Predictions. can keep leaking well after the router looks clean, in every. modality we tested. A protocol worth trusting reports both. ends of the pipeline – what the router is doing, and what the. prediction actually reveals once it reaches a decision..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 161
   },
   {
-    "id": "6a601012-e5ae-42d2-9a6a-503d803667a6",
+    "id": "e8af4f75-c14d-44a2-97f7-2fd72c8a3bd0",
     "text": "FairRoute++, in that sense, is less a finished fix than. an instrument. FDI does not replace demographic parity or. equalized odds; it sits next to them, catching a specific. and previously under-examined failure mode – routing-level. progress that quietly never reaches the prediction.. VII. LIMITATIONS. FairRoute++ makes a reasonably strong case for the discon-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 162
   },
   {
-    "id": "0b65cdc7-1574-43ee-aa8e-786640b6b20f",
+    "id": "dc2bd769-51d0-40e5-9f86-1965401ae776",
     "text": "nect between routing and prediction fairness, but the study has. real edges worth naming plainly.. The tabular core still leans on structured benchmarks and. a comparatively shallow router; the vision and language ex-. tensions in Section V-K address the scale question directly,. but neither touches the multi-billion-parameter MoE models. [Page 14]. 14.",
     "source": "fairtree-fdi",
     "page": 14,
     "chunk_index": 163
   },
   {
-    "id": "4bcc0c18-ec90-487a-8dcb-e5d82deadade",
+    "id": "f41b86f5-b275-401f-a112-6649d7d205dc",
     "text": "actually deployed in production language or vision systems,. where the stakes – and possibly the mechanics – could differ. further.. Leakage detection throughout relies on a single external. probe – logistic regression. It is the standard choice and a de-. fensible one, but a nonlinear probe might surface demographic. signal that a linear model simply cannot see, especially in the.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 164
   },
   {
-    "id": "0cd6b2e3-fe8e-4f27-a1f7-d0dfc1071a28",
+    "id": "a1b5a13b-ed75-409f-9b08-ea00ed80380f",
     "text": "higher-dimensional vision and language settings.. MI estimation carries its own asterisk. FDI leans onI(R;S),. and MI estimation in high dimensions is known to be tem-. peramental; our classifier-based and kNN estimators mostly. agree, which is reassuring, and the vision-domain kNN esti-. mator shows some instability at the latent stage specifically.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 165
   },
   {
-    "id": "dc22ec46-b2f6-4fb4-b9c9-355209f99dfa",
+    "id": "690715ed-814f-415f-8184-51be6204b417",
     "text": "– consistent with known limitations of nearest-neighbor MI. estimation in high-dimensional convolutional feature spaces.. “Mostly” agreeing is not the same as agreeing everywhere.. And finally, FDI diagnoses; it does not cure. The mitigation. experiment in Section V makes that explicit – knocking down. routing leakage does not automatically knock down prediction.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 166
   },
   {
-    "id": "0057c42a-9969-4293-94bb-3ff8fbb53844",
+    "id": "1886ecf7-1d3a-44fc-b9ff-d81c8cd53213",
     "text": "leakage, and building something that reliably closes the gap. remains open, not something this paper claims to have solved.. VIII. FUTUREWORK. The Fairness Disconnect identified here opens up more. directions than this paper closes.. Scaling further is the most obvious one: the vision and. language results in Section V-K establish that the disconnect.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 167
   },
   {
-    "id": "5e23d993-9261-41ca-b25b-98a539c494dc",
+    "id": "09ed7753-f5b7-44b5-9a61-6be18ff4bf7f",
     "text": "survives a change of modality and architecture, but production-. scale MoE systems – the trillion-parameter language and. vision models this line of routing-fairness work is ultimately. aimed at – remain untested, and the disconnect could plausibly. grow or shrink at that scale.. Stronger mitigation is a second, more pressing direction.. The mitigation study here shows that suppressing routing.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 168
   },
   {
-    "id": "b5c4eba7-a394-4796-8698-529680ccad8c",
+    "id": "aaad8b8c-6a18-47d9-9886-b1691cdea657",
     "text": "leakage alone does not suppress prediction leakage; joint. optimization across all three pipeline stages at once, rather. than patching one after the fact, looks like the more promising. path.. FDI itself need not stay confined to demographic fairness.. The same construction – an attenuation factor multiplied. against a residual-leakage term – could plausibly extend.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 169
   },
   {
-    "id": "467edb4a-d541-4baf-90dc-913a50b392ea",
+    "id": "2b35dc60-81c8-44b1-beed-b3479e7f6993",
     "text": "to privacy leakage, domain-adaptation robustness, or causal. representation learning, anywhere hidden information might. survive despite apparent improvement at an intermediate stage.. A more formal treatment would help too: a proper. information-theoretic account of why routing-stage attenua-. tion and prediction-stage leakage decouple, going beyond the.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 170
   },
   {
-    "id": "2e44d0e6-28d8-4816-a004-37c2732db120",
+    "id": "d117d6ba-fc6f-416e-9e39-9a4a2f1f356d",
     "text": "empirical demonstration in this paper, would put Fairness. Disconnect on firmer theoretical ground.. Finally, folding FDI into existing fairness-evaluation toolkits. would make measuring prediction leakage alongside conven-. tional fairness metrics a matter of habit rather than a special. addition – which is, ultimately, the point.. IX. CONCLUSION.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 171
   },
   {
-    "id": "45756d27-792c-4e10-90b5-52c4df499d11",
+    "id": "9618a1e1-5357-455d-9278-d1ca4d8a448f",
     "text": "The question we started with was simple: does fair routing. actually produce fair predictions? Most prior work assumesyes and moves on. Ours says: not always, and not rarely. enough to ignore.. The Fairness Disconnect Index gave us a way to put. that question on firmer footing – fold prediction leakage. and routing mutual information into one number and watch. what happens.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 172
   },
   {
-    "id": "7db7563f-969a-4a7b-89c5-686686007e06",
+    "id": "2315b073-337c-4886-b3ca-065c83555422",
     "text": "Across six tabular benchmarks, two vision. datasets, and a text-classification benchmark, the pattern held. with remarkably little variation: routing-level demographic. information came down reliably under FairRoute++, but a. meaningful share of it kept turning up in the final prediction. regardless. Fairness measured mid-pipeline, in short, does not.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 173
   },
   {
-    "id": "26b1697a-aac9-4e5b-a533-eaf8725c1c7b",
+    "id": "b1d45602-d666-417b-92c4-67c10479aa95",
     "text": "automatically survive to the decision layer – and that holds. whether the pipeline is a shallow tabular MoE, a convolutional. vision model, or a transformer text classifier.. We did not lean on one experiment to make this case.. Information-flow analysis, significance testing, seven conven-. tional baselines, a mitigation study, two independent MI esti-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 174
   },
   {
-    "id": "02b8467c-9e80-4353-9e53-c440843ec817",
+    "id": "0634a9b0-3747-4193-98c7-344bf4f74c3f",
     "text": "mators, a regularizer sweep, and three separate data modalities. all point the same direction. The disconnect was not a fluke of. one estimator, one architecture, or one training run – it kept. showing up.. What we hope outlasts FairRoute++ itself is a habit: check-. ing fairness at the router and calling the job done is not. enough. Intermediate fairness and final-output fairness need.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 175
   },
   {
-    "id": "b28cd389-18c0-4860-a833-869a305c94fd",
+    "id": "aa4e3090-e173-4f56-ac84-5e35c6e67183",
     "text": "separate verification, because – as this paper shows, across. three different kinds of data – they can quietly drift apart.. REFERENCES. [1] C. Dwork, M. Hardt, T. Pitassi, O. Reingold, and R. Zemel, “Fairness. Through Awareness,” inProc. Innovations in Theoretical Computer. Science (ITCS), 2012, pp. 214–226.. [2] M. Hardt, E. Price, and N. Srebro, “Equality of Opportunity in Super-.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 176
   },
   {
-    "id": "1235885a-1425-4976-8fb8-c0702f8c022a",
+    "id": "885922c2-1e25-4be9-a193-0b8da1bb11fd",
     "text": "vised Learning,” inAdvances in Neural Information Processing Systems. (NeurIPS), 2016, pp. 3315–3323.. [3] R. Zemel, Y. Wu, K. Swersky, T. Pitassi, and C. Dwork, “Learning. Fair Representations,” inProc. International Conference on Machine. Learning (ICML), 2013, pp. 325–333.. [4] D. Madras, E. Creager, T. Pitassi, and R. Zemel, “Learning Adversarially.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 177
   },
   {
-    "id": "76f2130e-622e-4396-b3c5-8f916a6d2c70",
+    "id": "91be4607-fe86-43f9-9602-1c89af4c2f61",
     "text": "Fair and Transferable Representations,” inProc. ICML, 2018, pp. 3384–. 3393.. [5] A. Agarwal, A. Beygelzimer, M. Dud ´ık, J. Langford, and H. Wallach,. “A Reductions Approach to Fair Classification,” inProc. ICML, 2018,. pp. 60–69.. [6] N. Mehrabi, F. Morstatter, N. Saxena, K. Lerman, and A. Galstyan, “A. Survey on Bias and Fairness in Machine Learning,”ACM Computing. Surveys, vol. 54, no. 6, pp.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 178
   },
   {
-    "id": "3a7e66e7-c798-4c59-85a4-dba0c562c2f6",
+    "id": "27db5375-9775-4063-a8ec-bb5170d51bc4",
     "text": "1–35, 2021.. [7] S. Caton and C. Haas, “Fairness in Machine Learning: A Survey,”ACM. Computing Surveys, vol. 55, no. 13, pp. 1–38, 2022.. [8] T. M. Cover and J. A. Thomas,Elements of Information Theory, 2nd ed.. Hoboken, NJ, USA: Wiley, 2006.. [9] N. Tishby, F. Pereira, and W. Bialek, “The Information Bottleneck. Method,” inProc. Allerton Conference on Communication, Control and.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 179
   },
   {
-    "id": "2c6085ba-39ca-4809-ad53-69a10f6026a8",
+    "id": "c22f3c0a-65ad-4a91-9927-4a56603a3692",
     "text": "Computing, 2000, pp. 368–377.. [10] A. Alemi, I. Fischer, J. Dillon, and K. Murphy, “Deep Variational. Information Bottleneck,” inProc. ICLR, 2017.. [11] I. Goodfellow et al., “Generative Adversarial Nets,” inAdvances in. Neural Information Processing Systems (NeurIPS), 2014, pp. 2672–. 2680.. [12] E. Jang, S. Gu, and B. Poole, “Categorical Reparameterization with. Gumbel-Softmax,” inProc.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 180
   },
   {
-    "id": "e04148cd-3c70-46bc-996b-50bcc2cecf96",
+    "id": "ce577631-2580-4d1e-8994-0b2c9991865c",
     "text": "ICLR, 2017.. [13] N. Shazeer et al., “Outrageously Large Neural Networks: The Sparsely-. Gated Mixture-of-Experts Layer,” inProc. ICLR, 2017.. [14] D. Lepikhin et al., “GShard: Scaling Giant Models with Conditional. Computation and Automatic Sharding,” inProc. ICLR, 2021.. [15] W. Fedus, B. Zoph, and N. Shazeer, “Switch Transformers: Scaling to.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 181
   },
   {
-    "id": "69ac1a03-51c6-4a61-8842-3706e4fc2ffa",
+    "id": "84b65c11-1bba-47a5-97cb-9935eb85630e",
     "text": "Trillion Parameter Models with Simple and Efficient Sparsity,”Journal. of Machine Learning Research, vol. 23, no. 120, pp. 1–39, 2022.. [Page 15]. 15. [16] S. Barocas and A. Selbst, “Big Data’s Disparate Impact,”California. Law Review, vol. 104, no. 3, pp. 671–732, 2016.. [17] R. K. E. Bellamy et al., “AI Fairness 360: An Extensible Toolkit for.",
     "source": "fairtree-fdi",
     "page": 15,
     "chunk_index": 182
   },
   {
-    "id": "e8a6c9d3-f43d-40b7-9544-20e1f61be644",
+    "id": "7763e3fe-0016-4b28-a844-5efefe67a1db",
     "text": "Detecting and Mitigating Algorithmic Bias,”IBM Journal of Research. and Development, vol. 63, no. 4/5, pp. 4:1–4:15, 2019.. [18] B. Becker and R. Kohavi, “Adult Data Set,” UCI Machine Learning. Repository, 1996.. [19] Y. Mao, Z. Wang, H. Xu, Y. Liu, and M. Zhang, “FairMoE: Fairness-. Aware Mixture-of-Experts for Bias Mitigation,” inProc. AAAI Confer-. ence on Artificial Intelligence, 2024..",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 183
   },
   {
-    "id": "ce30064d-d079-4858-89ca-0554ebc44397",
+    "id": "be51347f-ee83-4976-9f63-f4d45dc7ec40",
     "text": "[20] Y. Elazar and Y. Goldberg, “Adversarial Removal of Demographic. Attributes from Text Data,” inProc. Conference on Empirical Methods. in Natural Language Processing (EMNLP), 2018, pp. 11–21.. [21] H. Hofmann, “German Credit Data,” UCI Machine Learning Repository,. 1994.. [22] J. Angwin, J. Larson, S. Mattu, and L. Kirchner, “Machine Bias,”. ProPublica, 2016.. [23] B. H. Zhang, B.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 184
   },
   {
-    "id": "c26037b3-b060-4463-8367-a61661e66a54",
+    "id": "d29aaa6f-21d6-478c-8288-f2a3c21ea00f",
     "text": "Lemoine, and M. Mitchell, “Mitigating Unwanted. Biases with Adversarial Learning,” inProc. AAAI/ACM Conference on. AI, Ethics, and Society (AIES), 2018, pp. 335–340.. [24] Z. Liu, P. Luo, X. Wang, and X. Tang, “Deep Learning Face Attributes in. the Wild,” inProc. IEEE International Conference on Computer Vision. (ICCV), 2015, pp. 3730–3738.. [25] K. K ¨arkk¨ainen and J.",
     "source": "fairtree-fdi",
     "page": null,
     "chunk_index": 185
   },
   {
-    "id": "54e8c782-d2f8-4770-b6ec-8b9ed9a464f8",
+    "id": "723d1719-ae4b-42f4-bd93-e5a2cfdf88b2",
     "text": "Joo, “FairFace: Face Attribute Dataset for Balanced. Race, Gender, and Age for Bias Measurement and Mitigation,” in. Proc. IEEE/CVF Winter Conference on Applications of Computer Vision. (WACV), 2021, pp. 1548–1558..",
     "source": "fairtree-fdi",
     "page": null,
