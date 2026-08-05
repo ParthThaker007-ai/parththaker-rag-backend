@@ -1,16 +1,28 @@
 # ============================================
-# LANGUAGE SERVICE — Using langdetect (No fasttext)
+# LANGUAGE SERVICE — langdetect + Groq for translation
 # ============================================
+#
+# WHY THIS VERSION EXISTS:
+# The original version loaded Opus-MT (Helsinki-NLP) translation models
+# via `transformers` + `torch`, imported at module level. Even though
+# the actual model only loaded lazily on first use, the bare
+# `import torch` at the top of the file meant the whole app crashed
+# at startup once torch was removed from requirements.txt (to fix the
+# earlier OOM issue). Re-adding torch just for this would reintroduce
+# the same memory risk this project already fought twice.
+#
+# Instead, this version reuses Groq — the LLM already used for answer
+# generation (see generator.py) — to do the translation via a plain
+# prompt. Zero new dependencies, zero extra memory, and one less
+# network domain to depend on. For short query/response text (which
+# is all this app translates), LLM-based translation is a normal,
+# production-viable approach — not a toy substitute for MT models.
 
-import torch
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+import groq
 from app.config import config
-import os
-import requests
-import logging
 
 # ============================================
-# LANGDETECT (Replaces fasttext)
+# LANGDETECT
 # ============================================
 try:
     from langdetect import detect
@@ -22,25 +34,15 @@ except ImportError:
     def detect(text):
         return 'en'
 
-# ============================================
-# TRANSLATION MODELS (Opus-MT via HuggingFace)
-# ============================================
-_translation_models = {}
-_translation_tokenizers = {}
-_translation_lock = None
+groq_client = groq.Client(api_key=config.GROQ_API_KEY)
 
-# Try to use threading lock if available
-try:
-    import threading
-    _translation_lock = threading.Lock()
-except ImportError:
-    _translation_lock = None
-
-# Cache directory for models
-MODEL_CACHE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "models")
-os.makedirs(MODEL_CACHE_DIR, exist_ok=True)
-os.environ["HF_HOME"] = MODEL_CACHE_DIR
-os.environ["TRANSFORMERS_CACHE"] = os.path.join(MODEL_CACHE_DIR, "transformers")
+# Human-readable names for the prompt — an LLM translates better when
+# told "German" than when told the raw ISO code "de".
+_LANGUAGE_NAMES = {
+    "en": "English",
+    "de": "German",
+    "fr": "French",
+}
 
 # ============================================
 # DETECT LANGUAGE
@@ -52,7 +54,7 @@ def detect_language(text: str) -> str:
     """
     if not text or not text.strip():
         return 'en'
-    
+
     try:
         lang = detect(text)
         # langdetect returns 'en', 'de', 'fr', etc.
@@ -67,72 +69,42 @@ def detect_language(text: str) -> str:
         return 'en'
 
 # ============================================
-# LOAD TRANSLATION MODEL
-# ============================================
-def get_translation_model(src: str, tgt: str):
-    """
-    Thread-safe loading of translation model.
-    Uses lock if available to prevent duplicate downloads.
-    """
-    key = (src, tgt)
-    
-    # Check if already loaded in memory
-    if key in _translation_models:
-        return _translation_tokenizers[key], _translation_models[key]
-    
-    # Thread-safe loading
-    if _translation_lock:
-        with _translation_lock:
-            if key in _translation_models:
-                return _translation_tokenizers[key], _translation_models[key]
-            
-            return _load_translation_model(key, src, tgt)
-    else:
-        return _load_translation_model(key, src, tgt)
-
-def _load_translation_model(key, src, tgt):
-    """Internal function to actually load the model."""
-    model_name = config.TRANSLATION_MODELS.get(key)
-    if not model_name:
-        raise ValueError(f"No translation model for {src}→{tgt}")
-    
-    print(f"📥 Loading translation model: {model_name}")
-    try:
-        tokenizer = AutoTokenizer.from_pretrained(
-            model_name,
-            cache_dir=os.path.join(MODEL_CACHE_DIR, "transformers")
-        )
-        model = AutoModelForSeq2SeqLM.from_pretrained(
-            model_name,
-            cache_dir=os.path.join(MODEL_CACHE_DIR, "transformers")
-        )
-        _translation_tokenizers[key] = tokenizer
-        _translation_models[key] = model
-        print(f"✅ Translation model loaded: {model_name}")
-        return tokenizer, model
-    except Exception as e:
-        print(f"❌ Failed to load {model_name}: {e}")
-        raise
-
-# ============================================
-# TRANSLATE
+# TRANSLATE (via Groq)
 # ============================================
 def translate(text: str, src: str, tgt: str) -> str:
     """
-    Translate text from src language to tgt using Opus-MT.
-    Returns original text if translation fails.
+    Translate text from src language to tgt using Groq's LLM.
+    Returns original text if translation fails, or if src == tgt.
     """
     if src == tgt:
         return text
     if not text or not text.strip():
         return text
-    
+
+    src_name = _LANGUAGE_NAMES.get(src, src)
+    tgt_name = _LANGUAGE_NAMES.get(tgt, tgt)
+
+    # Deliberately terse system prompt: we want ONLY the translation
+    # back, no "Here is the translation:" preamble, no quotes, no
+    # commentary — this text gets used directly downstream (embedded,
+    # or shown to the user as the final answer).
+    system_prompt = (
+        f"You are a precise translator. Translate the user's {src_name} text "
+        f"into {tgt_name}. Return ONLY the translated text — no explanations, "
+        f"no quotation marks, no additional commentary."
+    )
+
     try:
-        tokenizer, model = get_translation_model(src, tgt)
-        inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
-        with torch.no_grad():
-            outputs = model.generate(**inputs, max_length=512, num_beams=4, early_stopping=True)
-        translated = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        response = groq_client.chat.completions.create(
+            model=config.GROQ_MODEL,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": text},
+            ],
+            temperature=0.1,  # low temperature — translation should be deterministic, not creative
+            max_tokens=1024,
+        )
+        translated = response.choices[0].message.content.strip()
         return translated
     except Exception as e:
         print(f"❌ Translation error ({src}→{tgt}): {e}")
